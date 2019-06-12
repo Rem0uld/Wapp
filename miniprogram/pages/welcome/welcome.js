@@ -5,10 +5,9 @@ Page({
     avatarUrl: '',
     userInfo: {},
   },
-  userLogin: function() {
+  userLogin: function () {
     wx.getSetting({ //调用接口判断是否登录
       success: res => { //调用成功调用获取信息API
-      if(res.authSetting['scope.'])
         console.log('调用getsetting成功');
         wx.getUserInfo({
           success: res => { //调用成功获取用户信息
@@ -71,7 +70,7 @@ Page({
 
 
   },
-  goIndex: function() { //授权完成跳转到首页
+  goIndex: function () { //授权完成跳转到首页
     db.collection('userInfo').where({
       _openid: app.globalData.openid,
     }).get({
@@ -101,35 +100,52 @@ Page({
 
   },
 
-  onLoad: function(options) {
+  onLoad: function (options) {
+
+    wx.getSetting({
+      success: res => {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: res => {
+              this.setData({
+                avatarUrl: res.userInfo.avatarUrl,
+                userInfo: res.userInfo,
+              })
+            }
+          })
+        }
+      }
+    })
+
+
 
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
 
 
@@ -143,21 +159,21 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
