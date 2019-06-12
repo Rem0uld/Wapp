@@ -1,0 +1,8 @@
+Component({
+  options: {},
+  data: {}
+
+
+
+
+})

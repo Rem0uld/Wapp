@@ -1,0 +1,28 @@
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+</cu-custom>
+
+<view class=" radius bg-gradual-blue shadow-blur">
+  <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-black response" style="height:100rpx"></image>
+</view>
+
+<scroll-view class='bg-gradual-blue box '>
+
+  <view class="flex padding justify-center margin-top-xl">
+    <view class="cu-avatar round lg margin-top-xl" style="background-image:url({{avatarUrl}});">
+      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}">
+      </view>
+    </view>
+  </view>
+
+  <view class="flex padding justify-center margin-top-xl">
+    <button wx:if="{{!avatarUrl}}" class='cu-btn bg-red round lg shadow' bindgetuserinfo='userLogin' open-type='getUserInfo'>
+      点击授权
+    </button>
+  </view>
+
+  <view class="flex padding justify-center margin-top-xl">
+    <button wx:if="{{avatarUrl}}" class='cu-btn bg-red round lg shadow' bindtap='goIndex'>
+      立即进入
+    </button>
+  </view>
+</scroll-view>

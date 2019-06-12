@@ -1,0 +1,42 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{false}}">
+  <view slot="content">注册</view>
+</cu-custom>
+
+
+<view class="padding text-center">
+  <view class="padding-xl radius shadow bg-blue margin-top">个人注册</view>
+</view>
+
+
+
+<view class='padding'>
+  <form bindsubmit='formSubmit' bindreset='formReset'>
+    <view class="cu-form-group margin-top">
+      <view class="title">姓名</view>
+      <input placeholder="请输入正确姓名" name='userName'></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">学号</view>
+      <input placeholder="请输入正确学号" name='userNumber' type='number'></input>
+    </view>
+
+    <view class="cu-form-group margin-top">
+      <view class="title">手机号码</view>
+      <input placeholder="请输入手机号码" name='userPhone' type='number'></input>
+    </view>
+ 
+    <view class="cu-form-group margin-top">
+      <view class="title">专业班级</view>
+      <input placeholder="请输入专业班级" name='userClass'></input>
+    </view>
+
+    <view class="box margin-top-xl">
+      <button class="cu-btn bg-green btn " form-type='submit'>确认</button>
+      <button class="cu-btn bg-red btn margin-top" form-type='reset'>重置</button>
+    </view>
+  </form>
+
+  
+
+</view>

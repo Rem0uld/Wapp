@@ -1,0 +1,17 @@
+/* pages/register/register.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.box{
+  width: 100%;
+  height: 100%;
+}
+.cu-form-group .title {
+  min-width: calc(4em + 30rpx);
+}
+.btn{
+  width: 100%;
+  
+}
