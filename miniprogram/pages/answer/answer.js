@@ -1,15 +1,25 @@
+const db = wx.cloud.database();
+const app = getApp();
 Page({
   options: {
     addGlobalClass: true,
   },
   data: {
+    title: '',
+    options: [],
+    answer: '',
 
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+
   onLoad: function (options) {
+    db.collection('questionBank').get({
+      success:res=>{
+        console.log(res.data)
+      }
+    })
+
+
 
   },
 

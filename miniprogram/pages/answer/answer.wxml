@@ -1,3 +1,4 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
 	<view slot="content">答题</view>
 </cu-custom>
+
