@@ -9,8 +9,7 @@
   </view>
 </view>
 
-
-<view class="flex justify-center">
+<view class="flex justify-center padding-bottom-xl">
   <view class="cu-capsule radius padding-right">
     <view class="cu-tag bg-red">
       <text>姓名</text>
@@ -20,7 +19,6 @@
     </view>
   </view>
 
-
   <view class="cu-capsule radius">
     <view class="cu-tag bg-blue">
       <text>班级</text>
@@ -29,5 +27,13 @@
       {{userClass}}
     </view>
   </view>
-
 </view>
+
+ <view class='nav-list margin-top-xl'>
+    <navigator open-type="navigate"  url="/pages/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+      <view class="nav-title margin">{{item.title}}</view>
+      <view class="nav-name margin">{{item.name}}</view>
+      <text class='cuIcon-{{item.icon}} margin'></text>
+    </navigator>
+  </view>
+ 

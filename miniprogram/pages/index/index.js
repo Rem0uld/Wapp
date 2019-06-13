@@ -8,7 +8,33 @@ Page({
     avatarUrl: '',
     userInfo:{},
     userName: 'null',
-    userClass: 'null'
+    userClass: 'null',
+    elements:[
+      {
+        title:'答题',
+        name:'answer',
+        icon:'question',
+        color:'blue'
+      },
+      {
+        title: '预约',
+        name: 'order',
+        icon: 'like',
+        color: 'red'
+      },
+      {
+        title: '练习',
+        name: 'exercise',
+        icon: 'copy',
+        color: 'cyan'
+      },
+      {
+        title: '关于',
+        name: 'about',
+        icon: 'settings',
+        color: 'pink'
+      },
+    ]
 
   },
 

@@ -1,2 +1,3 @@
-
-<text>about</text>
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+	<view slot="content">关于</view>
+</cu-custom>
