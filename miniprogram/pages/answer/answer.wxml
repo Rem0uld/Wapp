@@ -7,20 +7,16 @@
   <view class='action'>
     <text class="cuIcon-title text-blue"> 1.{{title}}</text>
   </view>
-
 </view>
 
 <view wx:for='{{options}}' wx:key>
-<view class="bg-white padding-lg margin-xl radius">
-  <text>{{item}}</text>
+  <view class="bg-white padding-lg margin-xl radius">
+    <text>{{item}}</text>
+  </view>
 </view>
+
+<button>下一题</button>
+<view>
+  <text>共15题，第{{}}题</text>
 </view>
-<!-- <view class="bg-white padding-lg margin-xl radius">
-  <text>{{options[1]}}</text>
-</view>
-<view class="bg-white padding-lg margin-xl radius">
-  <text>{{options[2]}}</text>
-</view>
-<view class="bg-white padding-lg margin-xl radius">
-  <text>{{options[3]}}</text>
-</view> -->
+<button>上一题</button>
