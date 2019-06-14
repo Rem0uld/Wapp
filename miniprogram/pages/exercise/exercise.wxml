@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-gradual-green" isBack="{{true}}">
+  <view slot="content">练习</view>
+</cu-custom>
+
