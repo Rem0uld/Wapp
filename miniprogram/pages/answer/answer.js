@@ -1,29 +1,48 @@
 const db = wx.cloud.database();
 const app = getApp();
+var tag = 0;
 Page({
   options: {
     addGlobalClass: true,
   },
   data: {
-    title: '',
-    options: [],
-    answer: '',
     questions:[],
+    tags:0,
+    newArr:[],
+  },
+  beforeQuestion:function(){
+    tag = tag - 1;
+    this.setData({
+      tags:tag,
+    })
+    console.log(this.data.tags);
+  },
+
+  nextQuestion:function(){
+    tag = tag + 1;
+    this.setData({
+      tags:tag,
+    })
+    console.log(this.data.tags);
+  },
+
+  test:function(){
+    
+     
+
 
   },
+
+
+
   onLoad: function(options) {
     db.collection('questionBank').get({
       success: res => {
-        
         const answerBank = res.data[0].question[0];
         this.setData({
-          title: answerBank.title,
-          options: answerBank.options,
-          answer: answerBank.answer,
-          questions:res.data
+          questions:res.data[0].question,
         })
         console.log(this.data.questions)
-
       }
     })
 
@@ -42,6 +61,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    var oldArr = [0, 1, 2, 3, 4, 5, 6, 7];
+    var newArr = [];
+    while (oldArr.length) {
+      var index = parseInt(Math.random() * oldArr.length);
+      newArr = newArr.concat(oldArr.splice(index, 1))
+    }
+    console.log(newArr);
+    this.setData({
+      newArr:newArr,
+    })
 
   },
 

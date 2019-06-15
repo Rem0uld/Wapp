@@ -5,18 +5,21 @@
 
 <view class="cu-bar bg-white solid-bottom margin">
   <view class='action'>
-    <text class="cuIcon-title text-blue"> 1.{{title}}</text>
+    <text class="cuIcon-title text-blue">{{questions[newArr[tags]].title}}</text>
   </view>
 </view>
 
-<view wx:for='{{options}}' wx:key>
+<view wx:for='{{questions[newArr[tags]].options}}' wx:key>
   <view class="bg-white padding-lg margin-xl radius">
     <text>{{item}}</text>
   </view>
 </view>
 
-<button>下一题</button>
-<view>
-  <text>共15题，第{{}}题</text>
+<view class="flex justify-center padding-bottom-xl">
+<button class="cu-btn round bg-blue shadow margin-right" bindtap='beforeQuestion'>上一题</button>
+<button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion'>下一题</button>
 </view>
-<button>上一题</button>
+
+<view>
+  <button bindtap='test'>测试</button>
+</view>
