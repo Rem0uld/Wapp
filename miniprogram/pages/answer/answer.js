@@ -6,70 +6,76 @@ Page({
     addGlobalClass: true,
   },
   data: {
-    questions:[],
-    tags:0,
-    newArr:[],
+    questions: [],
+    tags: 0,
+    newArr: [], //随机数数组
   },
-  beforeQuestion:function(){
+  beforeQuestion: function () { //改变tags改变题目
     tag = tag - 1;
-    this.setData({
-      tags:tag,
-    })
-    console.log(this.data.tags);
+    if (tag < 0) {
+      console.log("第一题");
+      tag = 0;
+    } else {
+      this.setData({
+        tags: tag,
+      })
+    }
   },
 
-  nextQuestion:function(){
+  nextQuestion: function () {
     tag = tag + 1;
-    this.setData({
-      tags:tag,
-    })
-    console.log(this.data.tags);
-  },
-
-  test:function(){
-    
-     
-
+    if (tag >= this.data.newArr.length) {
+      console.log("最后一题");
+      tag = this.data.newArr.length;
+    } else {
+      this.setData({
+        tags: tag,
+      })
+    };
 
   },
 
+  test: function () {
 
 
-  onLoad: function(options) {
+
+
+  },
+
+
+
+  onLoad: function (options) {
     db.collection('questionBank').get({
       success: res => {
         const answerBank = res.data[0].question[0];
         this.setData({
-          questions:res.data[0].question,
+          questions: res.data[0].question,
         })
         console.log(this.data.questions)
       }
     })
-
-
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () { //生成随机数数组，指定范围并且不能出现重复的数字
     var oldArr = [0, 1, 2, 3, 4, 5, 6, 7];
     var newArr = [];
     while (oldArr.length) {
-      var index = parseInt(Math.random() * oldArr.length);
+    var index = parseInt(Math.random() * oldArr.length);
       newArr = newArr.concat(oldArr.splice(index, 1))
     }
     console.log(newArr);
     this.setData({
-      newArr:newArr,
+      newArr: newArr,
     })
 
   },
@@ -77,35 +83,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

@@ -1,4 +1,4 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
   <view slot="content">答题</view>
 </cu-custom>
 
@@ -9,7 +9,7 @@
   </view>
 </view>
 
-<view wx:for='{{questions[newArr[tags]].options}}' wx:key>
+<view wx:for='{{questions[newArr[tags]].options}}' wx:key><!-- 通过随机数数组内的数字作为索引，达到随机抽取题目 -->
   <view class="bg-white padding-lg margin-xl radius">
     <text>{{item}}</text>
   </view>
