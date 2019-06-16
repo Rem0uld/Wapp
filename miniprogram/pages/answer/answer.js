@@ -6,10 +6,15 @@ Page({
     addGlobalClass: true,
   },
   data: {
+    btnName:'下一题',
     questions: [],
     tags: 0,
     newArr: [], //随机数数组
   },
+
+  
+
+
   beforeQuestion: function () { //改变tags改变题目
     tag = tag - 1;
     if (tag < 0) {
@@ -27,18 +32,12 @@ Page({
     if (tag >= this.data.newArr.length) {
       console.log("最后一题");
       tag = this.data.newArr.length;
+     
     } else {
       this.setData({
         tags: tag,
       })
     };
-
-  },
-
-  test: function () {
-
-
-
 
   },
 
