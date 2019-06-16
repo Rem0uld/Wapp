@@ -9,27 +9,26 @@
   </view>
 </view>
 
-<!-- <view wx:for='{{questions[newArr[tags]].options}}' wx:key> 通过随机数数组内的数字作为索引，达到随机抽取题目
-  <view class="bg-white padding-lg margin-xl radius">
-    <text>{{item}}</text>
-  </view>
-</view>  -->
-
-
-<radio-group class="block">
-  <view class="cu-form-group margin-xl padding round" wx:for='{{questions[newArr[tags]].options}}' wx:key>
+<!-- <radio-group class="block" bindchange='chageFun'>
+  <view class="cu-form-group margin-xl padding radius" wx:for='{{questions[newArr[tags]].options}}' wx:key>
+  <radio class="green" value='{{item.value}}'></radio>
     <view class="title">{{item.value}}.{{item.name}}</view>
-    <view>
-      <radio class="green margin-left-sm" value='{{item.valu}}' bindtouchend='chendFun'></radio>
+  </view>
+</radio-group> -->
+
+<view>
+  <radio-group>
+    <view class="cu-form-group margin-xl padding radius" wx:for='{{questions[newArr[tags]].options}}' wx:key>
+    <view>{{item.value}}：{{item.name}}</view>
     </view>
-  </view>
-</radio-group>
-
-
-<view class="flex justify-center padding-bottom-xl padding-top-xl">
-  <button class="cu-btn round bg-blue shadow margin-right" bindtap='beforeQuestion'>上一题</button>
-  <view class="cu-btn shadow ">
-    <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
-  </view>
-  <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion'>{{btnName}}</button>
+  </radio-group>
 </view>
+
+
+  <view class="flex justify-center padding-bottom-xl padding-top-xl">
+    <button class="cu-btn round bg-blue shadow margin-right" bindtap='beforeQuestion'>上一题</button>
+    <view class="cu-btn shadow ">
+      <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
+    </view>
+    <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion'>{{btnName}}</button>
+  </view>

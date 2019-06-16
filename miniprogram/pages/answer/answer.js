@@ -6,13 +6,13 @@ Page({
     addGlobalClass: true,
   },
   data: {
-    btnName:'下一题',
+
+    btnName: '下一题',
     questions: [],
     tags: 0,
     newArr: [], //随机数数组
   },
 
-  
 
 
   beforeQuestion: function () { //改变tags改变题目
@@ -32,7 +32,6 @@ Page({
     if (tag >= this.data.newArr.length) {
       console.log("最后一题");
       tag = this.data.newArr.length;
-     
     } else {
       this.setData({
         tags: tag,
@@ -50,7 +49,20 @@ Page({
         this.setData({
           questions: res.data[0].question,
         })
-        console.log(this.data.questions)
+        console.log(this.data.questions);
+        var oldArr = [];
+        for (let i = 0; i < this.data.questions.length; i++) {
+          oldArr.push(i);//创建一个新的数值用作索引
+        }
+        var newArr = [];
+        while (oldArr.length) {
+          var index = parseInt(Math.random() * oldArr.length);
+          newArr = newArr.concat(oldArr.splice(index, 1))//随机替换旧数组索引，生成新的随机数组
+        }
+        console.log(newArr);
+        this.setData({
+          newArr: newArr,
+        })
       }
     })
   },
@@ -66,16 +78,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () { //生成随机数数组，指定范围并且不能出现重复的数字
-    var oldArr = [0, 1, 2, 3, 4, 5, 6, 7];
-    var newArr = [];
-    while (oldArr.length) {
-    var index = parseInt(Math.random() * oldArr.length);
-      newArr = newArr.concat(oldArr.splice(index, 1))
-    }
-    console.log(newArr);
-    this.setData({
-      newArr: newArr,
-    })
 
   },
 
