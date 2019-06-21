@@ -1,3 +1,21 @@
 <cu-custom bgColor="bg-gradual-pink" isBack="{{false}}">
-	<view slot="content">个人中心</view>
+  <view slot="content">个人中心</view>
 </cu-custom>
+
+<view class="flex solid-bottom padding align-center bg-white">
+  <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});"></view>
+ 
+
+<view class="flex-right padding-bottom margin-top-xs">
+  <view class="margin-left-xl">
+    <text class="txt text-xl">{{nickName}}</text>
+  </view>
+  <view class="margin-left-xl margin-top-xs">
+    <text class="text-xs text-gray">隐私信息申明</text>
+  </view>
+</view>
+
+ <view class="myIcon"></view>
+
+</view>
+
