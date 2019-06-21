@@ -2,10 +2,13 @@
   font-weight: bold;
 }
 
-.myIcon {
+.arrow {
   width: 12px;
   height: 12px;
   border-top: 2px solid rgba(128, 128, 128, 0.726);
   border-right: 2px solid rgba(128, 128, 128, 0.726);
   transform: rotate(45deg);
+}
+.arrow-view{
+  width: 50%;
 }

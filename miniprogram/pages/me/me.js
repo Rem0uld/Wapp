@@ -6,26 +6,32 @@ Page({
   },
   data: {
     avatarUrl: '',
-    nickName:'',
+    nickName: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {//通过openid获取到数据库中的用户信息
+  onLoad: function(options) { //通过openid获取到数据库中的用户信息
     db.collection('userInfo').where({
-      _openid : app.globalData.openid
+      _openid: app.globalData.openid
     }).get({
       success: res => {
         console.log(res.data)
         this.setData({
           avatarUrl: res.data[0].avatarUrl,
-          nickName:res.data[0].userInfo.nickName,
+          nickName: res.data[0].userInfo.nickName,
         })
-        
+
       }
     })
 
+
+  },
+  goAbout: function() {
+      wx.navigateTo({
+        url: '../about/about',
+      })
 
   },
 
