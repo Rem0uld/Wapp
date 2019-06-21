@@ -19,7 +19,8 @@
 <view>
   <radio-group>
     <view class="cu-form-group margin-xl padding radius" wx:for='{{questions[newArr[tags]].options}}' wx:key>
-    <view>{{item.value}}：{{item.name}}</view>
+    <view>
+    <radio class="">{{item.value}}</radio>：{{item.name}}</view>
     </view>
   </radio-group>
 </view>

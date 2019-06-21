@@ -1,10 +1,7 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
 </cu-custom>
 
-
-
 <scroll-view class='bg-gradual-blue box'>
-
   <view class="flex padding justify-center margin-top-xl">
     <view class="cu-avatar round lg margin-top-xl" style="background-image:url({{avatarUrl}});">
       <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}">
