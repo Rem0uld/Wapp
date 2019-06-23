@@ -1,35 +1,28 @@
 <cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
-  <view slot="content">答题</view>
+    <view slot="content">答题</view>
 </cu-custom>
 
-
-<view class="cu-bar solid-bottom margin">
-  <view class='action'>
-    <text class="text-blue">{{tags+1}}、{{questions[newArr[tags]].title}}</text>
-  </view>
-</view>
-
-<!-- <radio-group class="block" bindchange='chageFun'>
-  <view class="cu-form-group margin-xl padding radius" wx:for='{{questions[newArr[tags]].options}}' wx:key>
-  <radio class="green" value='{{item.value}}'></radio>
-    <view class="title">{{item.value}}.{{item.name}}</view>
-  </view>
-</radio-group> -->
-
-<view>
-  <radio-group>
-    <view class="cu-form-group margin-xl padding radius" wx:for='{{questions[newArr[tags]].options}}' wx:key>
-    <view>
-    <radio class="">{{item.value}}</radio>：{{item.name}}</view>
+<view class="cu-bar bg-white solid-bottom margin shadow">
+    <view class='action'>
+        <text class="text-black">{{tags+1}}、{{questions[newArr[tags]].title}}       </text>
     </view>
-  </radio-group>
 </view>
 
 
-  <view class="flex justify-center padding-bottom-xl padding-top-xl">
+<view wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
+    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'bg-red':'bg-white'}} box round" bindtap="chooseAnswer">
+        {{item.value}}、{{item.name}}..{{item.checked}}
+    </view>
+</view>
+
+
+
+
+
+<view class="flex justify-center padding-bottom-xl padding-top-xl">
     <button class="cu-btn round bg-blue shadow margin-right" bindtap='beforeQuestion'>上一题</button>
     <view class="cu-btn shadow ">
-      <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
+        <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
     </view>
     <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion'>{{btnName}}</button>
-  </view>
+</view>

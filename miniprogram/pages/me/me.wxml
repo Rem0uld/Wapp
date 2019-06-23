@@ -10,7 +10,7 @@
       <text class="txt text-xl">{{nickName}}</text>
     </view>
     <view class="margin-left-xl margin-top-xs">
-      <text class="text-xs text-gray">隐私信息申明</text>
+      <text class="text-xs text-gray">关于我们</text>
     </view>
     <!-- 文本框 -->
   </view>

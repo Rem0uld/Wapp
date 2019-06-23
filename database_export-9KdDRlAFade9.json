@@ -1,0 +1,317 @@
+{
+    "_id": "SC",
+    "question": [
+        {
+            "options": [
+                {
+                    "name": "1米",
+                    "value": "A",
+                    "checked":false
+                },
+                {
+                    "name": "2米",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "3米",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "4米",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "高处作业是指在基准面在（ ）以上，有可能坠落的作业",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "安全现场管理为主，安全检查为辅",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "领导安排为主，现场整改为辅",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "安全第一、预防为主、综合治理",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产管理，坚持（ ）的方针。",
+            "answer": "C"
+        },
+        {
+            "options": [
+                {
+                    "name": "违章指挥，违章操作，违反“四条禁令”",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，违章操作，违反劳动纪律",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，习惯性违章操作，违反安全条例",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产过程中的“三违”的内容是什么？",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "1米",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "2米",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "3米",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "4米",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "高处作业是指在基准面在（ ）以上，有可能坠落的作业",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "安全现场管理为主，安全检查为辅",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "领导安排为主，现场整改为辅",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "安全第一、预防为主、综合治理",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产管理，坚持（ ）的方针。",
+            "answer": "C"
+        },
+        {
+            "options": [
+                {
+                    "name": "违章指挥，违章操作，违反“四条禁令”",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，违章操作，违反劳动纪律",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，习惯性违章操作，违反安全条例",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产过程中的“三违”的内容是什么？",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "1米",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "2米",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "3米",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "4米",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "高处作业是指在基准面在（ ）以上，有可能坠落的作业",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "安全现场管理为主，安全检查为辅",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "领导安排为主，现场整改为辅",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "安全第一、预防为主、综合治理",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产管理，坚持（ ）的方针。",
+            "answer": "C"
+        },
+        {
+            "options": [
+                {
+                    "name": "违章指挥，违章操作，违反“四条禁令”",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，违章操作，违反劳动纪律",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，习惯性违章操作，违反安全条例",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产过程中的“三违”的内容是什么？",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "1米",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "2米",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "3米",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "4米",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "高处作业是指在基准面在（ ）以上，有可能坠落的作业",
+            "answer": "B"
+        },
+        {
+            "options": [
+                {
+                    "name": "安全现场管理为主，安全检查为辅",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "领导安排为主，现场整改为辅",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "安全第一、预防为主、综合治理",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产管理，坚持（ ）的方针。",
+            "answer": "C"
+        },
+        {
+            "options": [
+                {
+                    "name": "违章指挥，违章操作，违反“四条禁令”",
+                    "value": "A",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，违章操作，违反劳动纪律",
+                    "value": "B",
+                    "checked": false
+                },
+                {
+                    "name": "违章指挥，习惯性违章操作，违反安全条例",
+                    "value": "C",
+                    "checked": false
+                },
+                {
+                    "name": "DDDD",
+                    "value": "D",
+                    "checked": false
+                }
+            ],
+            "title": "安全生产过程中的“三违”的内容是什么？",
+            "answer": "B"
+        }
+    ]
+}

@@ -1,3 +1,10 @@
 .box{
-  justify-items: 
+    margin: 50rpx;
+    padding:30rpx;
+    display: flex;
+	position: relative;
+	align-items: center;
+	min-height: 100rpx;
+	justify-content: space-between;
+    border-bottom: solid 1px gray;
 }

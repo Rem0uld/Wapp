@@ -1,7 +1,9 @@
 <cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
-  <view slot="content">关于</view>
 </cu-custom>
 
-<view class="padding-xl radius shadow-warp bg-white margin text-center">
-  <text>关于用户敏感信息收集声明</text>
+<view class="cu-bar bg-white">
+  <view class="action sub-title">
+    <text class="text-xl text-bold text-blue">关于我们</text>
+    <text class="text-ABC text-blue">about</text>
+  </view>
 </view>
