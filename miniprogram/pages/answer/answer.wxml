@@ -11,7 +11,7 @@
 
 <view wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
     <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'bg-red':'bg-white'}} box round" bindtap="chooseAnswer">
-        {{item.value}}、{{item.name}}..{{item.checked}}
+        {{item.value}}、{{item.name}}
     </view>
 </view>
 
