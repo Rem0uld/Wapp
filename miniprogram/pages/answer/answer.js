@@ -39,10 +39,13 @@ Page({
 
     chooseAnswer: function (res) {
         var mTags = this.data.tags;
-        var mCheck = this.data.questions[this.data.newArr[mTags]].options[res.currentTarget.dataset.index].checked;
+        var qs = this.data.questions[0].answer;
         this.setData({
-           [mCheck]:true,
+             [qs]:'A',
         })
+      
+        console.log(this.data)
+       
         
         
     },
