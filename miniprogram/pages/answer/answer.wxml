@@ -2,15 +2,15 @@
     <view slot="content">答题</view>
 </cu-custom>
 
-<view class="cu-bar bg-white solid-bottom margin shadow">
+<view class="cu-bar bg-white solid-bottom margin-lg padding-lg shadow">
     <view class='action'>
-        <text class="text-black">{{tags+1}}、{{questions[newArr[tags]].title}}       </text>
+        <text class="text-black">{{tags+1}}/{{newArr.length}}.{{questions[newArr[tags]].title}}</text>
     </view>
 </view>
 
 
 <view wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
-    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'bg-red':'bg-white'}} box round" bindtap="chooseAnswer">
+    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box round" bindtap="chooseAnswer">
         {{item.value}}、{{item.name}}
     </view>
 </view>
@@ -24,5 +24,6 @@
     <view class="cu-btn shadow ">
         <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
     </view>
-    <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion'>{{btnName}}</button>
+    <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion' wx:if='{{tags != newArr.length-1}}'>下一题</button>
+     <button class="cu-btn round bg-red shadow margin-left" bindtap='submit' wx:else>提交</button>
 </view>
