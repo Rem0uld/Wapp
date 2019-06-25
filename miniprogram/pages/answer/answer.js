@@ -38,22 +38,18 @@ Page({
     },
 
     chooseAnswer: function(res) {
-        var mTags = this.data.tags;
-        var mArr = this.data.newArr[mTags];
-        var mIndex = res.currentTarget.dataset.index;
-        console.log(res);
-        var nowChecked = 'questions[' + mArr + '].options[' + mIndex + '].checked'; //改变数组内的选中项为true
-
-        this.setData({
-            [nowChecked]: !this.data.questions[mArr].options[mIndex].checked,
-          
-
+        let mTag = this.data.newArr[this.data.tags];
+        let index = res.currentTarget.dataset.index;
+        let chooseArr = this.data.questions[mTag].options;
+        let nowChecked = 'questions['+mTag+'].options';//setData改变部分数据
+        if (chooseArr[index].checked) return;//选择当前已经选择的返回
+        chooseArr.forEach(item => {//
+            item.checked = false
         })
-
-        console.log(nowChecked);
-
-
-
+        chooseArr[index].checked = true;
+        this.setData({
+            [nowChecked]:chooseArr, 
+        })
     },
 
     onLoad: function(options) {
@@ -81,52 +77,4 @@ Page({
         })
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function() { //生成随机数数组，指定范围并且不能出现重复的数字
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function() {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function() {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function() {
-
-    }
 })
