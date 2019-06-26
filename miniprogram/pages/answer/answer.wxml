@@ -29,12 +29,11 @@
     <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
         <view class="cu-dialog">
             <view class="cu-bar bg-white">
-                
                 <view class="action text-blue" bindtap="hideModal">取消</view>
             </view>
-            <view class="padding-xl">
-                <view wx:for='{{cardArr}}' wx:key>
-                    <view> {{item+1}}</view>
+            <view>
+                <view wx:for='{{cardArr}}' wx:key class="padding margin flex">
+                    <button class="cu-btn round bg-red ">{{item+1}}</button>
                 </view>
             </view>
         </view>
