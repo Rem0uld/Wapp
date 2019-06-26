@@ -20,10 +20,28 @@
 
 
 <view class="flex justify-center padding-bottom-xl padding-top-xl">
-    <button class="cu-btn round bg-blue shadow margin-right" bindtap='beforeQuestion'>上一题</button>
-    <view class="cu-btn shadow ">
-        <text class='text-gray'>共{{newArr.length}}题，第{{tags+1}}题</text>
+    <button class="cu-btn round bg-blue shadow margin-right-lg" bindtap='beforeQuestion'>上一题</button>
+
+
+
+    <button class="cu-btn bg-green shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">答题卡</button>
+
+    <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+        <view class="cu-dialog">
+            <view class="cu-bar bg-white">
+                
+                <view class="action text-blue" bindtap="hideModal">取消</view>
+            </view>
+            <view class="padding-xl">
+                <view wx:for='{{cardArr}}' wx:key>
+                    <view> {{item+1}}</view>
+                </view>
+            </view>
+        </view>
     </view>
-    <button class="cu-btn round bg-red shadow margin-left" bindtap='nextQuestion' wx:if='{{tags != newArr.length-1}}'>下一题</button>
-     <button class="cu-btn round bg-red shadow margin-left" bindtap='submit' wx:else>提交</button>
+
+
+
+    <button class="cu-btn round bg-red shadow margin-left-lg" wx:if='{{btntag != 1}}' disabled="true">未交卷</button>
+    <button class="cu-btn round bg-red shadow margin-left-lg" bindtap='submit' wx:else>交卷</button>
 </view>

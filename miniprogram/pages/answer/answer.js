@@ -6,13 +6,15 @@ Page({
         addGlobalClass: true,
     },
     data: {
+        btntag: 0,
         choosed: [],
         questions: [],
         tags: 0,
         newArr: [], //随机数数组
+        cardArr: [],
     },
 
-    beforeQuestion: function() { //改变tags改变题目
+    beforeQuestion: function () { //改变tags改变题目
         tag = tag - 1;
         if (tag < 0) {
             wx.showToast({
@@ -29,19 +31,9 @@ Page({
 
     },
 
-    nextQuestion: function() {
-        tag = tag + 1;
-        if (tag >= this.data.newArr.length) {
-            console.log("最后一题");
-            tag = this.data.newArr.length-1;
-        } else {
-            this.setData({
-                tags: tag,
-            })
-        }
-    },
 
-    chooseAnswer: function(res) {
+
+    chooseAnswer: function (res) {
         let mTag = this.data.newArr[this.data.tags];
         let index = res.currentTarget.dataset.index;
         let chooseArr = this.data.questions[mTag].options;
@@ -54,30 +46,55 @@ Page({
         this.setData({
             [nowChecked]: chooseArr,
         })
-        if (tag < this.data.newArr.length){
-            this.data.choosed.push(chooseArr[index].value);//将选中的数据保存到数组中去
-        };
         var that = this;
-        setTimeout(function() { //设置延时后自动跳转到下一题
+        setTimeout(function () { //设置延时后自动跳转到下一题
             tag = tag + 1;
             if (tag >= that.data.newArr.length) {
-                console.log("最后一题");
-                tag = that.data.newArr.length-1;
+                that.setData({
+                    btntag: 1,
+                })
+                tag = that.data.newArr.length - 1;
             } else {
                 that.setData({
                     tags: tag,
                 })
             }
-        }, 700)
-        
-        
+        }, 600);
+
+
     },
 
-    submit:function(){
-        console.log(this.data.choosed);
+    submit: function () {
+        this.data.choosed = [];
+        var userArr = [];
+        for (var i of this.data.newArr) { //将用户所有选择保存到数组中去
+            for (let j = 0; j <= 3; j++) {
+                if (this.data.questions[i].options[j].checked) {
+                    userArr.push(this.data.questions[i].options[j].value)
+                }
+            }
+
+        }
+        this.setData({
+            choosed: userArr,
+        })
     },
 
-    onLoad: function(options) {
+
+
+
+    showModal(res) {
+        this.setData({
+            modalName: res.currentTarget.dataset.target
+        })
+    },
+    hideModal(res) {
+        this.setData({
+            modalName: null
+        })
+    },
+
+    onLoad: function (options) {
         db.collection('questionBank').get({
             success: res => {
                 const answerBank = res.data[0].question[0];
@@ -88,7 +105,11 @@ Page({
                 var oldArr = [];
                 for (let i = 0; i < this.data.questions.length; i++) {
                     oldArr.push(i); //创建一个新的数组用作索引
+
                 }
+                this.setData({
+                    cardArr: oldArr,
+                }) //将数组保存作为答题卡渲染
                 var newArr = [];
                 while (oldArr.length) {
                     var index = parseInt(Math.random() * oldArr.length);

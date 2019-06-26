@@ -3,8 +3,8 @@ const db = wx.cloud.database();
 const app = getApp();
 Page({
   data: {
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
+    // StatusBar: app.globalData.StatusBar,
+    // CustomBar: app.globalData.CustomBar,
   },
   formSubmit: function (res) {
     console.log(res);
