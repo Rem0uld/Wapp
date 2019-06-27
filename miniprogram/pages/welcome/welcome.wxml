@@ -1,31 +1,25 @@
-<cu-custom bgColor="bg-gradual-blue" isBack="{{false}}">
+<cu-custom bgColor="bg-red" isBack="{{false}}">
+  <view slot="content">云答题平台</view>
 </cu-custom>
 
-<scroll-view class='bg-gradual-blue box'>
-  <view class="flex padding justify-center margin-top-xl">
-    <view class="cu-avatar round lg margin-top-xl" style="background-image:url({{avatarUrl}});">
-      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}">
-      </view>
+<scroll-view class='bg-red box'>
+  <button class="cu-bar bg-white padding-xl margin-xl radius" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
+    <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
+      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
-  </view>
+    <view>点击授权</view>
+    <view class="arrow"></view>
+  </button>
 
-   <view class="flex-sub shadow-lg">
-    <image src="https://image.weilanwl.com/gif/rhomb-black.gif" mode="aspectFit" class="gif-black response" style="height:240rpx"></image>
-  </view>
+  <button class="cu-bar bg-white padding-xl margin-xl radius" bindtap="goIndex" wx:else>
+    <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
+      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+    </view>
+      <view class="none">
+        <text class="txt text-xl none">{{userInfo.nickName}}</text>
+      </view>
+    <view class="arrow"></view>
+  </button>
 
-  <view class="flex padding justify-center">
-    <button wx:if="{{!avatarUrl}}" class='cu-btn bg-red round lg shadow' bindgetuserinfo='userLogin' open-type='getUserInfo'>
-      点击授权
-    </button>
-  </view>
 
-  <view class="flex padding justify-center">
-    <button wx:if="{{avatarUrl}}" class='cu-btn bg-red round lg shadow' bindtap='goIndex'>
-      立即进入
-    </button>
-  </view>
-
-  <!-- <view class="bg-gradual-blue shadow-blur">
-    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-black response" style="height:250rpx"></image>
-  </view> -->
 </scroll-view>

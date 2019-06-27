@@ -11,10 +11,27 @@ page{
   height: 100%;
 }
 .btn{
-  
   height: 100%;
   width: 100%;
   justify-content: center;
   justify-items: center;
 }
-
+.arrow {
+  width: 12px;
+  height: 12px;
+  border-top: 2px solid rgba(128, 128, 128, 0.726);
+  border-right: 2px solid rgba(128, 128, 128, 0.726);
+  transform: rotate(45deg);
+}
+.txt {
+  font-weight: bold;
+}
+.cu-avatar.xl {
+	width: 100rpx;
+	height: 100rpx;
+	font-size: 2.5em;
+}
+.none{
+  margin: 0;
+  padding: 0;
+}
