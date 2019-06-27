@@ -2,12 +2,15 @@
     <view slot="content">答题</view>
 </cu-custom>
 
+<view class="cu-bar bg-white justify-center">
+<text class="cuIcon-time text-blue">{{countDownMin}}分{{countDownSec}}秒</text> 
+</view>
+
 <view class="cu-bar bg-white solid-bottom margin-lg padding-lg shadow">
     <view class='action'>
         <text class="text-black">{{tags+1}}/{{newArr.length}}.{{questions[newArr[tags]].title}}</text>
     </view>
 </view>
-
 
 <view wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
     <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box round" bindtap="chooseAnswer">
@@ -15,10 +18,12 @@
     </view>
 </view>
 
-<view class="flex justify-center padding-bottom-xl padding-top-xl">
+<view class="flex justify-center padding-bottom-xl padding-top-xl fixed-bottom">
     <button class="cu-btn round bg-blue shadow margin-right-lg" bindtap='beforeQuestion'>上一题</button>
 
-    <button class="cu-btn bg-green shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">答题卡</button>
+    <button class="cu-btn bg-green round shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">
+        答题卡
+    </button>
 
     <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
         <view class="cu-dialog">
@@ -26,7 +31,7 @@
                 <view class="action text-blue" bindtap="hideModal">收起</view>
             </view>
             <view>
-                <view wx:for='{{cardArr}}' wx:key class="margin padding" style='display:inline-block'>
+                <view wx:for='{{cardArr}}' wx:key class="margin " style='display:inline-block'>
                     <button class="cu-btn round bg-{{item?'green':'red'}}" data-index='{{index}}' bindtap="cardClick">{{index+1}}</button>
                 </view>
             </view>

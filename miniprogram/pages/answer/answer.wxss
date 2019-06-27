@@ -11,3 +11,8 @@
 .checked{
     background-color: rgba(27, 180, 27, 0.774);
 }
+.fixed-bottom{
+    bottom: 0;
+    width: 100%;
+    position: fixed;
+}

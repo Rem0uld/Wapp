@@ -1,18 +1,43 @@
 const db = wx.cloud.database();
 const app = getApp();
 var tag = 0;
+function countDown(that) {
+  let sec = that.data.countDownSec;
+  let min = that.data.countDownMin;
+  if(sec == 0 && min == 0){
+      console.log('time out')
+      return;
+  }
+  if(sec == 0){
+      var delay = setTimeout(function(){//补秒
+          that.setData({
+              countDownMin: min - 1,
+          })
+      },1000)
+      sec = 5;
+  }
+  const time = setTimeout(function(){
+      that.setData({
+          countDownSec:sec -1,
+      })
+      countDown(that);
+  },1000)
+}
 Page({
     options: {
         addGlobalClass: true,
     },
     data: {
-        btntag: 0,
-        choosed: [],
-        questions: [],
-        tags: 0,
+        countDownSec:59,
+        countDownMin:5,
+        btntag: 0,//交卷按钮标识
+        choosed: [],//选择好的数组
+        questions: [],//题库
+        tags: 0,//题目标识
         newArr: [], //随机数数组
-        cardArr: [],
-        cardIndex:0,
+        cardArr: [],//答题卡数组
+        cardIndex: 0,//答题卡序号
+
     },
 
     beforeQuestion: function () { //改变tags改变题目
@@ -32,8 +57,6 @@ Page({
 
     },
 
-
-
     chooseAnswer: function (res) {
         let mTag = this.data.newArr[this.data.tags];
         let index = res.currentTarget.dataset.index;
@@ -47,10 +70,10 @@ Page({
         this.setData({
             [nowChecked]: chooseArr,
         })
-        this.data.cardArr.splice(tag,1,true);
+        this.data.cardArr.splice(tag, 1, true);
         var cardarr = this.data.cardArr;
         this.setData({
-            cardArr:cardarr//实时更新选中的数组
+            cardArr: cardarr//实时更新选中的数组
         })
         var that = this;
         setTimeout(function () { //设置延时后自动跳转到下一题
@@ -86,19 +109,17 @@ Page({
         console.log(this.data.choosed);
     },
 
-    cardClick:function(res){
+    cardClick: function (res) {
         let cardIndex = res.currentTarget.dataset.index;
         console.log(cardIndex);
         tag = cardIndex;
         this.setData({
-            tags:cardIndex,
-            modalName:null,
+            tags: cardIndex,
+            modalName: null,
         })
     },
 
-
-
-    showModal(res) {
+    showModal(res) {//显示关闭答题卡
         this.setData({
             modalName: res.currentTarget.dataset.target
         })
@@ -110,7 +131,8 @@ Page({
     },
 
     onLoad: function (options) {
-        db.collection('questionBank').get({
+        countDown(this);
+        db.collection('questionBank').get({//获取数据库中的题库，保存到本地
             success: res => {
                 const answerBank = res.data[0].question[0];
                 this.setData({
@@ -139,5 +161,4 @@ Page({
             }
         })
     },
-
 })
