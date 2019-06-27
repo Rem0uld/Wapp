@@ -15,31 +15,23 @@
     </view>
 </view>
 
-
-
-
-
 <view class="flex justify-center padding-bottom-xl padding-top-xl">
     <button class="cu-btn round bg-blue shadow margin-right-lg" bindtap='beforeQuestion'>上一题</button>
-
-
 
     <button class="cu-btn bg-green shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">答题卡</button>
 
     <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
         <view class="cu-dialog">
             <view class="cu-bar bg-white">
-                <view class="action text-blue" bindtap="hideModal">取消</view>
+                <view class="action text-blue" bindtap="hideModal">收起</view>
             </view>
             <view>
-                <view wx:for='{{cardArr}}' wx:key class="padding margin flex">
-                    <button class="cu-btn round bg-red ">{{item+1}}</button>
+                <view wx:for='{{cardArr}}' wx:key class="margin padding" style='display:inline-block'>
+                    <button class="cu-btn round bg-{{item?'green':'red'}}" data-index='{{index}}' bindtap="cardClick">{{index+1}}</button>
                 </view>
             </view>
         </view>
     </view>
-
-
 
     <button class="cu-btn round bg-red shadow margin-left-lg" wx:if='{{btntag != 1}}' disabled="true">未交卷</button>
     <button class="cu-btn round bg-red shadow margin-left-lg" bindtap='submit' wx:else>交卷</button>

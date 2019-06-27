@@ -12,6 +12,7 @@ Page({
         tags: 0,
         newArr: [], //随机数数组
         cardArr: [],
+        cardIndex:0,
     },
 
     beforeQuestion: function () { //改变tags改变题目
@@ -46,6 +47,11 @@ Page({
         this.setData({
             [nowChecked]: chooseArr,
         })
+        this.data.cardArr.splice(tag,1,true);
+        var cardarr = this.data.cardArr;
+        this.setData({
+            cardArr:cardarr//实时更新选中的数组
+        })
         var that = this;
         setTimeout(function () { //设置延时后自动跳转到下一题
             tag = tag + 1;
@@ -73,13 +79,22 @@ Page({
                     userArr.push(this.data.questions[i].options[j].value)
                 }
             }
-
         }
         this.setData({
             choosed: userArr,
         })
+        console.log(this.data.choosed);
     },
 
+    cardClick:function(res){
+        let cardIndex = res.currentTarget.dataset.index;
+        console.log(cardIndex);
+        tag = cardIndex;
+        this.setData({
+            tags:cardIndex,
+            modalName:null,
+        })
+    },
 
 
 
@@ -103,13 +118,15 @@ Page({
                 })
                 console.log(this.data.questions);
                 var oldArr = [];
+                var cardArr = [];
                 for (let i = 0; i < this.data.questions.length; i++) {
                     oldArr.push(i); //创建一个新的数组用作索引
-
+                    cardArr.push(false);//创建答题卡数组
                 }
                 this.setData({
-                    cardArr: oldArr,
+                    cardArr: cardArr,
                 }) //将数组保存作为答题卡渲染
+                console.log(this.data.cardArr)
                 var newArr = [];
                 while (oldArr.length) {
                     var index = parseInt(Math.random() * oldArr.length);
