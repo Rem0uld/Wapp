@@ -7,19 +7,15 @@
     <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
       <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
-    <view>点击授权</view>
+    <text class="txt text-xl">点击授权</text>
     <view class="arrow"></view>
   </button>
 
-  <button class="cu-bar bg-white padding-xl margin-xl radius" bindtap="goIndex" wx:else>
+  <button class="cu-bar bg-white padding-xl margin-xl radius animation-slide-left" bindtap="goIndex" wx:else style="animation-delay: 0.8s;">
     <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
       <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
-      <view class="none">
-        <text class="txt text-xl none">{{userInfo.nickName}}</text>
-      </view>
+        <text class="txt text-xl">{{userInfo.nickName}}</text>
     <view class="arrow"></view>
   </button>
-
-
 </scroll-view>
