@@ -36,3 +36,21 @@ position: absolute;
   width: 650rpx;
   height: 200rpx;
 }
+.hand-l{
+  left: 200rpx;
+  top: 164rpx;
+  position: absolute;
+  width: 65rpx;
+  height: 40rpx;
+  border-radius:32rpx / 20rpx;
+  background-color: rgba(75,50,35,0.99);
+}
+.hand-r{
+  left: 495rpx;
+  top: 164rpx;
+  position: absolute;
+  width: 65rpx;
+  height: 40rpx;
+  border-radius:32rpx / 20rpx;
+  background-color: rgba(75,50,35,0.99);
+}

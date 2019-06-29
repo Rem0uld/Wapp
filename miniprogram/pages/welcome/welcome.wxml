@@ -1,5 +1,4 @@
 <cu-custom bgColor="bg-red" isBack="{{false}}">
-  <view slot="content">云答题平台</view>
 </cu-custom>
 
 
@@ -8,8 +7,8 @@
 
 <scroll-view class='bg-red box'>
 
-<view style="animation-delay: 0.8s;" class='animation-slide-right' >
-  <button class="cu-bar bg-white padding-xl margin-xl radius btn-box" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
+<view style="animation-delay: 1s;" class='animation-slide-left' >
+  <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
     <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
       <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
@@ -17,16 +16,16 @@
     <view class="arrow"></view>
   </button>
 
-  <button class="cu-bar bg-white padding-xl margin-xl radius btn-box" bindtap="goIndex" wx:else >
+  <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindtap="goIndex" wx:else >
     <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
       <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
     </view>
     <text class="txt text-xl">{{userInfo.nickName}}</text>
     <view class="arrow"></view>
   </button>
-
-  
   <image class='login-box' src='../../images/owl-login.png' mode='aspectFit'>
   </image>
+  <view class='hand-l'></view>
+  <view class='hand-r'></view>
 </view>
 </scroll-view>
