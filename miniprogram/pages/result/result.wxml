@@ -1,0 +1,4 @@
+<cu-custom bgColor="bg-gradual-pink" isBack='{{false}}'>
+  <view slot="content">结果</view>
+</cu-custom>
+

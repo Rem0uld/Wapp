@@ -36,6 +36,12 @@ position: absolute;
   width: 650rpx;
   height: 200rpx;
 }
+.other-box{
+  top: 434rpx;
+  position: absolute;
+  width: 650rpx;
+  height: 250rpx;
+}
 .hand-l{
   left: 200rpx;
   top: 164rpx;
@@ -53,4 +59,7 @@ position: absolute;
   height: 40rpx;
   border-radius:32rpx / 20rpx;
   background-color: rgba(75,50,35,0.99);
+}
+.img-center{
+ position: absolute;
 }

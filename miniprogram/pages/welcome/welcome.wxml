@@ -1,31 +1,31 @@
 <cu-custom bgColor="bg-red" isBack="{{false}}">
 </cu-custom>
 
+<view class='bg-red box'>
+  <view style="animation-delay: 1.5s;" class='animation-slide-left'>
+    <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
+      <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
+        <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
+      <text class="txt text-xl">点击授权</text>
+      <view class="arrow"></view>
+    </button>
 
-
-
-
-<scroll-view class='bg-red box'>
-
-<view style="animation-delay: 1s;" class='animation-slide-left' >
-  <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
-    <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
-      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+    <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindtap="goIndex" wx:else>
+      <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
+        <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
+      </view>
+      <text class="txt text-xl">{{userInfo.nickName}}</text>
+      <view class="arrow"></view>
+    </button>
+    <image class='login-box' src='https://7365-serve-67da38-1256834179.tcb.qcloud.la/owl-login.png?sign=a5f46ff6ca029e7e6e4f98f31c2eeddc&t=1561867503' mode='aspectFit'>
+    </image>
+    <view class='hand-l'></view>
+    <view class='hand-r'></view>
+  </view>
+  <view style="animation-delay: 0.5s;" class='animation-slide-right'>
+    <view class="shadow cu-bar bg-white padding-xl margin-xl other-box radius">
+      <image src='../../images/welcome.png' class='img-center' mode='aspectFit'></image>
     </view>
-    <text class="txt text-xl">点击授权</text>
-    <view class="arrow"></view>
-  </button>
-
-  <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindtap="goIndex" wx:else >
-    <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">
-      <view class="cu-tag badge {{userInfo.gender%2==0?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
-    </view>
-    <text class="txt text-xl">{{userInfo.nickName}}</text>
-    <view class="arrow"></view>
-  </button>
-  <image class='login-box' src='../../images/owl-login.png' mode='aspectFit'>
-  </image>
-  <view class='hand-l'></view>
-  <view class='hand-r'></view>
+  </view>
 </view>
-</scroll-view>
