@@ -1,7 +1,6 @@
 const db = wx.cloud.database();
 const app = getApp();
 var tag = 0;
-
 function countDown(that) {
   let sec = that.data.countDownSec;
   let min = that.data.countDownMin;
@@ -10,8 +9,8 @@ function countDown(that) {
     wx.showModal({
       title: '失败',
       content: '未在指定时间内交卷，考试失败！',
-      showCancel:false,
-      success:res=>{
+      showCancel: false,
+      success: res => {
         wx.reLaunch({
           url: '../index/index',
         })
@@ -19,9 +18,9 @@ function countDown(that) {
     })
     return;
   }
-  if(min <= 1){
+  if (min <= 1) {
     that.setData({
-      textColor:'red',
+      textColor: 'red',
     })
   }
   if (sec == 0) {
@@ -33,6 +32,10 @@ function countDown(that) {
     sec = 10;
   }
   const time = setTimeout(function () {
+    if(that.data.subTag){
+      console.log('submit')
+      return
+    }
     that.setData({
       countDownSec: sec - 1,
     })
@@ -46,9 +49,9 @@ Page({
     addGlobalClass: true,
   },
   data: {
-    textColor:'blue',
+    textColor: 'blue',
     countDownSec: 10,
-    countDownMin: 2,
+    countDownMin: 1,
     choosed: [], //选择好的数组
     questions: [], //题库
     tags: 0, //题目标识
@@ -57,6 +60,7 @@ Page({
     cardIndex: 0, //答题卡序号
     answerArr: [], //正确答案数组
     score: 0,
+    subTag:false,//设置提交状态，防止提交后继续倒计时
   },
 
   beforeQuestion: function () { //改变tags改变题目
@@ -103,7 +107,7 @@ Page({
           tags: tag,
         })
       }
-    }, 600);
+    }, 500);
   },
 
   submit: function () {
@@ -148,19 +152,34 @@ Page({
             score: res.result
           })
           console.log(that.data.score);
-          setTimeout(function () { wx.hideLoading(); },1000);
-        },
-        fail: res => {
-          console.error
-        }
+          db.collection('userInfo').where({
+            _openid: app.globalData.openid,
+          }).get({
+            success: res => {
+              db.collection('userInfo').doc(res.data[0]._id).update({
+                data: {
+                  score: that.data.score,
+                    }
+                })
+            }
+          })
+          setTimeout(function () { wx.hideLoading(); }, 1000);
+          wx.redirectTo({
+            url: '../result/result',
+          })
+          that.setData({
+            subTag : true,
+          })
+          },
+        fail: res => {console.error}
       })
-     
-      
+
+
     } else {
-       wx.showModal({
-         title:'提示',
-         content: '请将所有题目答完后交卷！',
-       })
+      wx.showModal({
+        title: '提示',
+        content: '请将所有题目答完后交卷！',
+      })
     }
   },
 
