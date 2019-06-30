@@ -3,9 +3,20 @@ Page({
     addGlobalClass: true,
   },
   data: {
-
+    github: 'https://github.com/gritJack/Wapp'
   },
 
+  clickGit: function () {
+    wx.setClipboardData({
+      data: this.data.github,
+      success: res => {
+        wx.showToast({
+          title: '以复制地址！',
+          duration:2000,
+        })
+      },
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

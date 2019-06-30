@@ -7,3 +7,40 @@
     <text class="text-ABC text-blue">about</text>
   </view>
 </view>
+
+<scroll-view class='box'>
+<view class="cu-timeline">
+  <view class="cu-time">Now</view>
+
+<view class="cu-item cur cuIcon-loading">
+    <view class="content bg-green shadow-blur">
+      <text>----/--/--</text> 未完待续
+    </view>
+  </view>
+
+  <view class="cu-item cur cuIcon-noticefill">
+    <view class="content bg-green shadow-blur">
+      <text>2019/6/30</text> 大致完成主要页面的开发
+    </view>
+  </view>
+  <view class="cu-item text-red cuIcon-github">
+    <view class="content bg-red shadow-blur" bindtap='clickGit'>
+     <text>2019/6/12</text> 学会了git的基本用法，将代码传送到Github
+    （有兴趣可以点一下！）
+    </view>
+  </view>
+  <view class="cu-item text-grey cuIcon-evaluate_fill">
+    <view class="content bg-grey shadow-blur">
+     <text>2019/5/XX</text> 开始比较具体的学习HTML、JS与CSS（学的一塌糊涂。。）
+    </view>
+  </view>
+  <view class="cu-item text-blue">
+    <view class="bg-blue content">
+      <text>2018/X/XX</text> 一个人开始准备爬坑，零基础，非专业。
+    </view>
+    <view class="bg-cyan content">
+     <text>2018/X/XX</text> 忘记何时项目启动
+    </view>
+  </view>
+</view>
+</scroll-view>
