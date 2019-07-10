@@ -173,8 +173,6 @@ Page({
           },
         fail: res => {console.error}
       })
-
-
     } else {
       wx.showModal({
         title: '提示',

@@ -1,4 +1,29 @@
 <cu-custom bgColor="bg-gradual-pink" isBack='{{false}}'>
-  <view slot="content">结果</view>
+    <view slot="content">结果</view>
 </cu-custom>
 
+
+<view wx:if='{{score >= 60}}' class='box-text'>
+    <image src='../../images/success.gif' mode='center'></image>
+    <view class="padding bg-green radius animation-slide-top" style='width:550rpx;margin:0 auto;animation-delay: 0.5s;'>您的分数为：{{score}}分，恭喜通过考试！</view>
+    <view class='margin'></view>
+    <view class="flex" style='width:600rpx;margin:0 auto;'>
+        <button class='bg-gradual-blue radius margin' style='width:50%'>前往预约
+        </button>
+        <button class='bg-gradual-red radius margin' style='width:50%' bindtap='goIndex'>
+            返回首页
+        </button>
+    </view>
+</view>
+<view wx:else class='box-text'>
+    <image src='../../images/fail.gif' mode='center'></image>
+    <view class="padding bg-red radius animation-slide-bottom" style='width:600rpx;margin:0 auto;animation-delay: 0.5s;'>您的分数为：{{score}}分，很遗憾未能通过考试！</view>
+    <view class='margin'></view>
+    <view class="flex" style='width:650rpx;margin:0 auto;'>
+        <button class='bg-gradual-blue radius margin' style='width:50%;' disabled='true'>前往预约
+        </button>
+        <button class='bg-gradual-red radius margin' style='width:50%' bindtap='goIndex'>
+            返回首页
+        </button>
+    </view>
+</view>
