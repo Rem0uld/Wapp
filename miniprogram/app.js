@@ -17,6 +17,7 @@ App({
   },
   globalData: {
     openid:'',
+    score:'',
     
   }
 })

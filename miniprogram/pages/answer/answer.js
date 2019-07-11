@@ -24,16 +24,16 @@ function countDown(that) {
     })
   }
   if (sec == 0) {
-    var delay = setTimeout(function () { //补秒
+    var delay = setTimeout(function() { //补秒
       that.setData({
         countDownMin: min - 1,
       })
     }, 1000)
     sec = 10;
   }
-  const time = setTimeout(function () {
-    if(that.data.subTag){
-      console.log('submit')
+  const time = setTimeout(function() {
+    if (that.data.subTag) {
+      console.log('stop')
       return
     }
     that.setData({
@@ -45,13 +45,10 @@ function countDown(that) {
 
 
 Page({
-  options: {
-    addGlobalClass: true,
-  },
   data: {
     textColor: 'blue',
     countDownSec: 10,
-    countDownMin: 1,
+    countDownMin: 2,
     choosed: [], //选择好的数组
     questions: [], //题库
     tags: 0, //题目标识
@@ -59,11 +56,10 @@ Page({
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
     answerArr: [], //正确答案数组
-    score: 0,
-    subTag:false,//设置提交状态，防止提交后继续倒计时
+    subTag: false, //设置提交状态，防止提交后继续倒计时
   },
 
-  beforeQuestion: function () { //改变tags改变题目
+  beforeQuestion: function() { //改变tags改变题目
     tag = tag - 1;
     if (tag < 0) {
       wx.showToast({
@@ -79,7 +75,8 @@ Page({
     }
   },
 
-  chooseAnswer: function (res) {
+  chooseAnswer: function(res) {
+    console.log(tag);
     let mTag = this.data.newArr[this.data.tags];
     let index = res.currentTarget.dataset.index;
     let chooseArr = this.data.questions[mTag].options;
@@ -92,13 +89,14 @@ Page({
     this.setData({
       [nowChecked]: chooseArr,
     })
-    this.data.cardArr.splice(tag, 1, true);
+    this.data.cardArr.splice(tag, 1, true);//变更选中数组
     var cardarr = this.data.cardArr;
     this.setData({
       cardArr: cardarr //实时更新选中的数组
     })
+    console.log(this.data.cardArr)
     var that = this;
-    setTimeout(function () { //设置延时后自动跳转到下一题
+    setTimeout(function() { //设置延时后自动跳转到下一题
       tag = tag + 1;
       if (tag >= that.data.newArr.length) {
         tag = that.data.newArr.length - 1;
@@ -108,9 +106,9 @@ Page({
         })
       }
     }, 500);
-  },
+  }, 
 
-  submit: function () {
+  submit: function() {
     var cardarr = this.data.cardArr;
     var that = this;
     this.data.choosed = [];
@@ -148,30 +146,30 @@ Page({
           answerArr: answerArr,
         },
         success: res => {
-          that.setData({
-            score: res.result
-          })
-          console.log(that.data.score);
+          app.globalData.score = res.result;
+          console.log('global' + app.globalData.score);
           db.collection('userInfo').where({
             _openid: app.globalData.openid,
           }).get({
             success: res => {
               db.collection('userInfo').doc(res.data[0]._id).update({
                 data: {
-                  score: that.data.score,
-                    }
-                })
+                  score: app.globalData.score
+                }
+              })
             }
           })
-          setTimeout(function () { wx.hideLoading(); }, 1000);
-          wx.redirectTo({
+          setTimeout(function() {
+            wx.hideLoading();
+          }, 1000);
+          tag = 0;
+          wx.reLaunch({
             url: '../result/result',
           })
           that.setData({
-            subTag : true,
+            subTag: true,
           })
-          },
-        fail: res => {console.error}
+        } 
       })
     } else {
       wx.showModal({
@@ -181,9 +179,8 @@ Page({
     }
   },
 
-  cardClick: function (res) {
-    let cardIndex = res.currentTarget.dataset.index;
-    console.log(cardIndex);
+  cardClick: function(res) {
+    const cardIndex = res.currentTarget.dataset.index;
     tag = cardIndex;
     this.setData({
       tags: cardIndex,
@@ -202,7 +199,8 @@ Page({
     })
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
+    console.log(this.data.tags)
     countDown(this); //初始化倒计时
     db.collection('questionBank').get({ //获取数据库中的题库，保存到本地
       success: res => {
@@ -233,4 +231,9 @@ Page({
       }
     })
   },
+  onUnload:function(){
+    this.setData({
+      subTag:true,
+    })
+  }
 })
