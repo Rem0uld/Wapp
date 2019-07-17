@@ -1,7 +1,7 @@
-<cu-custom bgColor="bg-red" isBack="{{false}}">
+<cu-custom bgColor="bg-blue" isBack="{{false}}">
 </cu-custom>
 
-<view class='bg-red box'>
+<view class='bg-blue box'>
   <view style="animation-delay: 1.5s;" class='animation-slide-left'>
     <button class="cu-bar bg-white padding-xl margin-xl btn-box" bindgetuserinfo='userLogin' open-type='getUserInfo' wx:if='{{!avatarUrl}}'>
       <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});">

@@ -11,6 +11,12 @@ Page({
         })
     },
 
+    goOrder:function(){
+      wx.reLaunch({
+        url: '../order/order',
+      })
+    },
+
     onLoad: function(options) {
         console.log('result score'+app.globalData.score);
         this.setData({

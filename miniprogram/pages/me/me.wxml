@@ -2,7 +2,7 @@
   <view slot="content">个人中心</view>
 </cu-custom>
 
-<view class="flex solid-bottom padding align-center bg-white" bindtap="goAbout">
+<view class="flex solid-bottom padding align-center bg-white " bindtap="goAbout">
   <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});"></view>
   <!-- 头像框 -->
   <view class="flex-right padding-bottom margin-top-xs">
@@ -18,4 +18,49 @@
     <view class="arrow"></view>
   </view>
   <!-- 箭头 -->
+</view>
+
+<view class="cu-list menu card-menu margin-top-lg  radius">
+  
+  <view class='cu-item'>
+  </view>
+
+  <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
+    <view class='content'>
+      <text class='cuIcon-formfill text-green'></text>
+      <text class='text-gray text-xl'>测试成绩：{{score}}</text>
+    </view>
+  </view>
+
+  <view class='cu-item animation-slide-right' style="animation-delay: 0.5s;">
+    <view class='content'>
+      <text class='cuIcon-phone text-blue'></text>
+      <text class='text-gray text-xl'>预约信息：{{order}}</text>
+    </view>
+  </view>
+
+   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
+    <view class='content'>
+      <text class="cuIcon-writefill text-cyan"></text>
+      <text class='text-gray text-xl'>意见反馈</text>
+    </view>
+  </view>
+
+  <view class='cu-item animation-slide-right' style="animation-delay: 0.5s;">
+    <view class='content'>
+      <text class="cuIcon-appreciatefill text-red"></text>
+      <text class='text-gray text-xl'>赞赏支持</text>
+    </view>
+  </view>
+
+  <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
+    <view class='content'>
+      <text class="cuIcon-creativefill text-red"></text>
+      <text class='text-gray text-xl'>Bug提交</text>
+    </view>
+  </view>
+ <view class='cu-item'>
+  </view>
+
+  
 </view>

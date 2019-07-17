@@ -8,7 +8,7 @@
     <view class="padding bg-green radius animation-slide-top" style='width:550rpx;margin:0 auto;animation-delay: 0.5s;'>您的分数为：{{score}}分，恭喜通过考试！</view>
     <view class='margin'></view>
     <view class="flex" style='width:600rpx;margin:0 auto;'>
-        <button class='bg-gradual-blue radius margin' style='width:50%'>前往预约
+        <button class='bg-gradual-blue radius margin' style='width:50%' bindtap='goOrder'>前往预约
         </button>
         <button class='bg-gradual-red radius margin' style='width:50%' bindtap='goIndex'>
             返回首页

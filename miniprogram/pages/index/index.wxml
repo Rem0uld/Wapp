@@ -1,5 +1,5 @@
 <cu-custom bgColor="bg-gradual-pink" isBack='{{false}}'>
-  <view slot="content">答题</view>
+  <view slot="content">首页</view>
 </cu-custom>
 
 

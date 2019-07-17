@@ -7,6 +7,8 @@ Page({
   data: {
     avatarUrl: '',
     nickName: '',
+    score:'',
+    order:''
   },
 
   /**

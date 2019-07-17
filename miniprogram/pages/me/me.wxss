@@ -2,7 +2,7 @@
   font-weight: bold;
 }
 
-.arrow {
+.arrow{
   width: 12px;
   height: 12px;
   border-top: 2px solid rgba(128, 128, 128, 0.726);
