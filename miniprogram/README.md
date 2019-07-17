@@ -20,10 +20,10 @@
 
 ## 界面展示
 欢迎界面：
-![image](https://github.com/gritJack/Wapp/blob/master/images/欢迎.png)
+![imag](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
 ***
 注册界面：
-![image](https://github.com/gritJack/Wapp/blob/master/images/注册.png)
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B3%A8%E5%86%8C.png)
 ***
 主页界面：
 ![image](https://github.com/gritJack/Wapp/blob/master/images/%E4%B8%BB%E9%A1%B5.png)
