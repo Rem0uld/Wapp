@@ -18,6 +18,23 @@
     4.关于页面构建完成
 
 
+## 界面展示
+欢迎界面：
+![imag](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
+***
+注册界面：
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B3%A8%E5%86%8C.png)
+***
+主页界面：
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E4%B8%BB%E9%A1%B5.png)
+****
+关于界面：
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E5%85%B3%E4%BA%8E.png)
+***
+测试界面：
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B5%8B%E8%AF%95.png)
+****
+
 
 ## 参考文档
 - [ColorUI](https://github.com/weilanwl/ColorUI)
