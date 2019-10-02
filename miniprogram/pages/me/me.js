@@ -8,7 +8,7 @@ Page({
     avatarUrl: '',
     nickName: '',
     score:'',
-    order:''
+    order:'暂无'
   },
 
   /**
@@ -23,6 +23,7 @@ Page({
         this.setData({
           avatarUrl: res.data[0].avatarUrl,
           nickName: res.data[0].userInfo.nickName,
+          score:res.data[0].score
         })
 
       }

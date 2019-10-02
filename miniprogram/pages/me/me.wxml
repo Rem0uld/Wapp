@@ -21,46 +21,46 @@
 </view>
 
 <view class="cu-list menu card-menu margin-top-lg  radius">
-  
-  <view class='cu-item'>
-  </view>
+
+  <view class='cu-item'></view>
 
   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
-    <view class='content'>
+    <view class='content margin-left-xl'>
       <text class='cuIcon-formfill text-green'></text>
-      <text class='text-gray text-xl'>测试成绩：{{score}}</text>
+      <text class='text-gray text-xl'>测试成绩</text>
+      <text class='text-gray text-xl margin-left-lg'>{{score}}分</text>
     </view>
   </view>
 
   <view class='cu-item animation-slide-right' style="animation-delay: 0.5s;">
-    <view class='content'>
+    <view class='content margin-left-xl'>
       <text class='cuIcon-phone text-blue'></text>
-      <text class='text-gray text-xl'>预约信息：{{order}}</text>
+      <text class='text-gray text-xl'>预约信息</text>
+      <text class='text-gray text-xl margin-left-lg'>{{order}}</text>
     </view>
   </view>
 
-   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
-    <view class='content'>
+  <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
+    <view class='content margin-left-xl'>
       <text class="cuIcon-writefill text-cyan"></text>
       <text class='text-gray text-xl'>意见反馈</text>
     </view>
   </view>
 
   <view class='cu-item animation-slide-right' style="animation-delay: 0.5s;">
-    <view class='content'>
+    <view class='content margin-left-xl'>
       <text class="cuIcon-appreciatefill text-red"></text>
       <text class='text-gray text-xl'>赞赏支持</text>
     </view>
   </view>
 
   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
-    <view class='content'>
+    <view class='content margin-left-xl'>
       <text class="cuIcon-creativefill text-red"></text>
       <text class='text-gray text-xl'>Bug提交</text>
     </view>
   </view>
- <view class='cu-item'>
-  </view>
 
-  
+  <view class='cu-item'></view>
+
 </view>
