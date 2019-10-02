@@ -3,25 +3,20 @@ const app = getApp();
 
 Page({
   data: {
-    score: 60,
+    score: null,
     teacherInfo: [],
-
-
-
   },
 
 
 
   onLoad: function(options) {
     db.collection('teacherInfo').get({
-      success:res=>{
+      success: res => {
         this.setData({
           teacherInfo: res.data[0].teachers
         })
       }
     })
-
-
     db.collection('userInfo').where({
       _openid: app.globalData.openid
     }).get({
@@ -30,8 +25,28 @@ Page({
         this.setData({
           score: res.data[0].score
         })
+        if (res.data[0].score < 60)
+          wx.showModal({
+            title: '错误',
+            content: '考试成绩不合格，无法预约，请重新考试！',
+            success: res => {
+              if (res.confirm) {
+                wx.reLaunch({
+                  url: '../index/index',
+                })
+              } else if (res.cancel) {
+               wx.reLaunch({
+                 url: '../index/index',
+               })
+              }
+            }
+          })
+
       }
     })
+
+
+
   },
 
 

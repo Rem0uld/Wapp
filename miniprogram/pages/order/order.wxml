@@ -25,5 +25,5 @@
   </view>
 </view>
 <view wx:else>
-  考试成绩不合格无法预约
+  
 </view>
