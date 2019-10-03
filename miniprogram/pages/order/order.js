@@ -31,11 +31,11 @@ Page({
             content: '考试成绩不合格，无法预约，请重新考试！',
             success: res => {
               if (res.confirm) {
-                wx.reLaunch({
+                wx.switchTab({
                   url: '../index/index',
                 })
               } else if (res.cancel) {
-                wx.reLaunch({
+                wx.switchTab({
                   url: '../index/index',
                 })
               }

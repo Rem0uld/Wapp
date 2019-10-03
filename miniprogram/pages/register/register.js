@@ -30,6 +30,7 @@ Page({
                     _class: userValue.userClass,
                     number: userValue.userNumber,
                     phone: userValue.userPhone,
+                    score:0,
                   }
                 })
                 setTimeout(function() {
