@@ -28,10 +28,14 @@
       <input placeholder="请输入专业班级" name='userClass'></input>
     </view>
 
-    <view class="box margin-top-xl">
-      <button class="cu-btn bg-green btn " form-type='submit'>确认</button>
-      <button class="cu-btn bg-red btn margin-top" form-type='reset'>重置</button>
+    <view class="flex margin-top-xl">
+
+      <button class="flex-sub padding margin-xs radius cu-btn bg-green btn" form-type='submit'>确认</button>
+
+      <button class="flex-sub padding margin-xs radius cu-btn bg-red btn" form-type='reset'>重置</button>
+
     </view>
+
   </form>
 
 </view>

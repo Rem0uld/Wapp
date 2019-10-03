@@ -11,7 +11,7 @@ page{
 .cu-form-group .title {
   min-width: calc(4em + 30rpx);
 }
+
 .btn{
-  width: 100%;
-  
+  height: 80rpx;
 }

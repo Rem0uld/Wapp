@@ -9,7 +9,7 @@ Page({
 
 
 
-  onLoad: function(options) {
+  onLoad: function (options) {
     db.collection('teacherInfo').get({
       success: res => {
         this.setData({
@@ -35,9 +35,9 @@ Page({
                   url: '../index/index',
                 })
               } else if (res.cancel) {
-               wx.reLaunch({
-                 url: '../index/index',
-               })
+                wx.reLaunch({
+                  url: '../index/index',
+                })
               }
             }
           })
