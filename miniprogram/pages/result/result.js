@@ -6,7 +6,7 @@ Page({
     },
 
     goIndex: function() {
-        wx.reLaunch({
+        wx.switchTab({
           url: '../index/index',
         })
     },

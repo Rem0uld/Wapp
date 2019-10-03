@@ -1,0 +1,7 @@
+<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+  <view slot="content">详细信息</view>
+</cu-custom>
+
+<view>
+{{name}}
+</view>

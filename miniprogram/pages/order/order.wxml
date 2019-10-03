@@ -3,7 +3,7 @@
 </cu-custom>
 
 <view wx:if='{{score >= 60}}'>
-  <view class="cu-list menu card-menu margin-top-lg radius" wx:for="{{teacherInfo}}" wx:key>
+  <view class="cu-list menu card-menu margin-top-lg radius" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
     <view class='cu-item '>
       <view class="padding flex">
         <view class="cu-avatar round xl margin-left" style="background-image:url({{item.avatar}});">
@@ -24,6 +24,4 @@
     </view>
   </view>
 </view>
-<view wx:else>
-  
-</view>
+<view wx:else></view>

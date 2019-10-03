@@ -18,6 +18,7 @@ App({
   globalData: {
     openid:'',
     score:'',
+    teacher:'',
     
   }
 })

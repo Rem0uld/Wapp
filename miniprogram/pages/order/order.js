@@ -6,8 +6,14 @@ Page({
     score: null,
     teacherInfo: [],
   },
+  choosetech:function(res){
+    console.log(res.currentTarget.dataset.name);
+    app.globalData.teacher = res.currentTarget.dataset.name;
+    wx.reLaunch({
+      url: '../teacher/teacher',
+    })
 
-
+  },
 
   onLoad: function (options) {
     db.collection('teacherInfo').get({
@@ -41,14 +47,7 @@ Page({
               }
             }
           })
-
       }
     })
-
-
-
   },
-
-
-
 })

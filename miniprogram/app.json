@@ -8,7 +8,8 @@
     "pages/order/order",
     "pages/about/about",
     "pages/exercise/exercise",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/teacher/teacher"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

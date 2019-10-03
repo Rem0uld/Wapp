@@ -11,7 +11,7 @@ function countDown(that) {
       content: '未在指定时间内交卷，考试失败！',
       showCancel: false,
       success: res => {
-        wx.reLaunch({
+        wx.switchTab({
           url: '../index/index',
         })
       }
@@ -204,7 +204,7 @@ Page({
     countDown(this); //初始化倒计时
     db.collection('questionBank').get({ //获取数据库中的题库，保存到本地
       success: res => {
-        const answerBank = res.data[0].question[0];
+        // const answerBank = res.data[0].question[0];
         this.setData({
           questions: res.data[0].question,
         })
