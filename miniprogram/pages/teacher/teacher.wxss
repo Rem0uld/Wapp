@@ -7,3 +7,7 @@
 .screen-swiper {
 	min-height: 475rpx;
 }
+.box{
+  width: 50%;
+}
+

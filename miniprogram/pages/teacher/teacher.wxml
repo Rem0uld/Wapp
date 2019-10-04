@@ -10,15 +10,12 @@
 
 <view class="bg-white cu-bar">
   <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.avatar}});"></view>
-  <view class="text-lg flex-right">{{teaInf.name}}
-  </view>
+  <view class="text-lg box">{{teaInf.name}}</view>
 </view>
 
-<view class="cu-bar bg-white text-gray text-lg">
+<view class="cu-bar bg-white text-gray text-xl">
   <text class="margin">教师简介：
   {{teaInf.info}}
-  座右铭：
-  {{teaInf.quote}}
 </text>
 </view>
 
