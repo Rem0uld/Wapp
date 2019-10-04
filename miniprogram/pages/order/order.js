@@ -9,7 +9,7 @@ Page({
   choosetech:function(res){
     console.log(res.currentTarget.dataset.name);
     app.globalData.teacher = res.currentTarget.dataset.name;
-    wx.reLaunch({
+    wx.navigateTo({
       url: '../teacher/teacher',
     })
 

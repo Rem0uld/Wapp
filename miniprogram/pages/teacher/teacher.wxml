@@ -3,5 +3,5 @@
 </cu-custom>
 
 <view>
-{{name}}
+{{teaInf.name}}{{teaInf.avatar}}
 </view>

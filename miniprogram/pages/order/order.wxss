@@ -1,1 +1,6 @@
 /* pages/home/home.wxss */
+.cu-avatar.lg {
+	width: 96rpx;
+	height: 96rpx;
+	font-size: 2em;
+}

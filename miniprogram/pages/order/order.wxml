@@ -3,7 +3,7 @@
 </cu-custom>
 
 <view wx:if='{{score >= 60}}'>
-  <view class="cu-list menu card-menu margin-top-lg radius" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
+  <!-- <view class="cu-list menu card-menu margin-top-lg radius" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
     <view class='cu-item '>
       <view class="padding flex">
         <view class="cu-avatar round xl margin-left" style="background-image:url({{item.avatar}});">
@@ -22,6 +22,59 @@
         </view>
       </view>
     </view>
+  </view> -->
+
+
+
+  <view class="cu-card case no-card" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{item.pic}}" mode="widthFix"></image>
+        <view class="cu-tag bg-red">名师</view>
+        <view class="cu-bar bg-shadeBottom">
+          <text class="text-cut">{{item.quote}}</text>
+        </view>
+      </view>
+      <view class="cu-list menu-avatar">
+        <view class="cu-item">
+          <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+          <view class="content flex-sub">
+            <view class="text-gray">{{item.name}}</view>
+            <view class="text-gray text-sm flex justify-between">
+              {{item.status}}
+              <view class="text-gray text-sm">
+                <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.attention}}
+                <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.stars}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.message}}
+                <view class=""></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </view>
+
+
+
+
 <view wx:else></view>
