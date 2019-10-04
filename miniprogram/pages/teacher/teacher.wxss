@@ -5,5 +5,5 @@
     position: fixed;
 }
 .screen-swiper {
-	min-height: 575rpx;
+	min-height: 475rpx;
 }

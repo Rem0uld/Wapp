@@ -1,21 +1,34 @@
 <cu-custom bgColor="bg-gradual-red" isCustom="{{true}}">
   <view slot="content">详细信息</view>
 </cu-custom>
-<scroll-view>
-  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
-    <swiper-item wx:for="{{swiperList}}" wx:key>
-      <image src="{{item.url}}" mode="aspectFill"></image>
-    </swiper-item>
-  </swiper>
+
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+
+<view class="bg-white cu-bar">
+  <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.avatar}});"></view>
+  <view class="text-lg flex-right">{{teaInf.name}}
+  </view>
+</view>
+
+<view class="cu-bar bg-white text-gray text-lg">
+  <text class="margin">教师简介：
+  {{teaInf.info}}
+  座右铭：
+  {{teaInf.quote}}
+</text>
+</view>
 
 
-  <view class="text"></view>
-</scroll-view>
+
 
 
 
 <view class="cu-bar bg-white tabbar border shop flex justify-center fixed-bottom">
-  <view class="bg-pink submit">评分</view>
+  <view class="bg-red submit">评分</view>
   <view class="bg-orange submit">留言</view>
   <view class="bg-red submit">预约</view>
 </view>

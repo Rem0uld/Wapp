@@ -19,6 +19,7 @@
             <view class="text-gray">{{item.name}}</view>
             <view class="text-gray text-sm flex justify-between">
               {{item.status}}
+              
               <view class="text-gray text-sm">
                 <text class="cuIcon-attentionfill margin-lr-xs"></text>{{item.attention}}
                 <text class="cuIcon-appreciatefill margin-lr-xs"></text> {{item.stars}}
