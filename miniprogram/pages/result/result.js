@@ -12,7 +12,7 @@ Page({
     },
 
     goOrder:function(){
-      wx.reLaunch({
+      wx.navigateTo({
         url: '../order/order',
       })
     },

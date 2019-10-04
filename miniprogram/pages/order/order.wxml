@@ -1,32 +1,9 @@
-<cu-custom bgColor="bg-gradual-red" isBack="{{true}}">
+<cu-custom bgColor="bg-gradual-red" isCustom="{{true}}">
   <view slot="content">预约</view>
 </cu-custom>
 
 <view wx:if='{{score >= 60}}'>
-  <!-- <view class="cu-list menu card-menu margin-top-lg radius" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
-    <view class='cu-item '>
-      <view class="padding flex">
-        <view class="cu-avatar round xl margin-left" style="background-image:url({{item.avatar}});">
-          <view class="cu-tag badge {{item.gender=='女'?'cuIcon-female bg-pink':'cuIcon-male bg-blue'}}"></view>
-        </view>
-        <view class='padding-left-lg text-xl text-gray'>
-          <view>
-            <text>姓名：{{item.name}}</text>
-          </view>
-          <view>
-            <text>简介：{{item.info}}</text>
-          </view>
-          <view>
-            <text>星级：<text class='cuIcon-favorfill text-yellow' wx:for='{{item.stars}}' wx:key></text></text>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view> -->
-
-
-
-  <view class="cu-card case no-card" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
+  <view class="cu-card case card" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
     <view class="cu-item shadow">
       <view class="image">
         <image src="{{item.pic}}" mode="widthFix"></image>
@@ -54,24 +31,6 @@
       </view>
     </view>
   </view>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </view>
 
 

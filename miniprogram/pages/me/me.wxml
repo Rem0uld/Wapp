@@ -2,7 +2,7 @@
   <view slot="content">个人中心</view>
 </cu-custom>
 
-<view class="flex solid-bottom padding align-center bg-white margin radius" bindtap="goAbout">
+<view class="flex solid-bottom padding align-center bg-white margin rounds" bindtap="goAbout">
   <view class="cu-avatar round xl" style="background-image:url({{avatarUrl}});"></view>
   <!-- 头像框 -->
   <view class="flex-right padding-bottom margin-top-xs">

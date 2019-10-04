@@ -12,3 +12,6 @@
 .arrow-view{
   width: 50%;
 }
+.rounds {
+	border-radius: 30rpx;
+}
