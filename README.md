@@ -1,6 +1,6 @@
 # 答题小程序云开发版
 使用小程序原生云开发搭建，
-界面使用ColorUI
+界面使用-[ColorUI](https://github.com/weilanwl/ColorUI)
 
 
 ## 目标功能：
@@ -16,6 +16,7 @@
     2.登录界面美化
     3.评分功能构建，使用云函数
     4.关于页面构建完成
+    5.教师预约，评分，留言功能完善中
 
 
 ## 界面展示
@@ -34,6 +35,12 @@
 测试界面：
 ![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B5%8B%E8%AF%95.png)
 ****
+预约界面：
+![imag](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
+***
+信息界面：
+![imag](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
+***
 
 
 ## 参考文档
