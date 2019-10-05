@@ -12,18 +12,26 @@
   </view>
 </view>
 
-<view class="cu-list menu-avatar solids-bottom solid-blod">
+<view class="cu-list menu-avatar solids-bottom">
   <view class="cu-item">
     <view class="cu-avatar round l" style="background-image:url({{}});"></view>
     <view class="content flex-sub">
-      <view class="text-gray">田科老师</view>
+      <view class="text-gray">田老师</view>
       <view class="text-cut text-gray" style="width:80px">
-        <text>ssssssssssssssssssss</text>
+        <text>信息信息信息</text>
       </view>
     </view>
   </view>
 </view>
 
 <view class="cu-form-group">
-  <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="多行文本输入框"></textarea>
+  <textarea maxlength="-1" bindinput="textareaAInput" placeholder="吐槽or点赞，期待你的评价！" style="height:400rpx"></textarea>
 </view>
+
+<view class="cu-bar bg-white margin-top solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>整体评分：
+  </view>
+</view>
+
+
