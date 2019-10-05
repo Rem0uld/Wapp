@@ -2,6 +2,7 @@
   <view slot="content">详细信息</view>
 </cu-custom>
 
+<scroll-view>
 <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
   <swiper-item wx:for="{{swiperList}}" wx:key>
     <image src="{{item.url}}" mode="aspectFill"></image>
@@ -10,25 +11,45 @@
 
 <view class="bg-white cu-bar">
   <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.avatar}});"></view>
-  <view class="text-lg box">{{teaInf.name}}</view>
+  <view class="text-lg box">{{teaInf.name}}田老师</view>
 </view>
 
-<view class="cu-bar bg-white text-gray text-xl">
-  <text class="margin">教师简介：
-  {{teaInf.info}}
-</text>
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class='action'>
+    <text class="cuIcon-title text-blue"></text>教师简介
+  </view>
 </view>
 
+ <view class="solids-bottom padding-xs flex align-center bg-white">
+    <view class="flex-sub">
+      <view class="solid-bottom text-df padding">工程师、高级技师，现任江西科技学院机械工程学院机械基础实验中心教研室主任，2002年赴东莞新永塑胶模具厂进修，2003年赴陕西汉川机床有限公司进修，2004年赴德国北莱茵州进修，并获得德国机械工业协会工程师证书，2006年以来多次在华中数控、德国DMG公司上海分公司等企业进修。
+2010年获“江西省青年岗位能手”、“青年技术标兵”，发表论文6篇、专利5项、主持省级教学改革课题1项、主持校级教学改革课题1项、参与教学改革课题2项、参与自然课题2项，主持编写教材2本，获学校“优秀教学质量奖”2次，“先进个人”6次，带领与组织学生各项竞赛十余次。</view>
+
+    </view>
+  </view>
 
 
 
 
 
+
+<!-- <view class="cu-list menu-avatar">
+  <view class="cu-item">
+    <view class="cu-avatar round xs" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+    <view class="content">
+      <view class="text-grey">凯尔</view>
+      <view class="text-gray text-sm flex">
+        <text class="margin-right-xs"></text> 我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。我已天理为凭，踏入这片荒芜，不再受凡人的枷锁遏制。
+      </view>
+    </view>
+  </view>
+</view> -->
+</scroll-view>
 <view class="cu-bar bg-white tabbar border shop flex justify-center fixed-bottom">
-  <view class="bg-red submit">评分</view>
-  <view class="bg-orange submit">留言</view>
+  <view class="bg-orange submit">评价</view>
   <view class="bg-red submit">预约</view>
 </view>
+
 
 
 
