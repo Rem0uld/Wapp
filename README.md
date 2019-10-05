@@ -35,12 +35,7 @@
 测试界面：
 ![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B5%8B%E8%AF%95.png)
 ****
-预约界面：
-![imag](https://github.com/gritJack/Wapp/blob/master/images/预约.jpg)
-***
-信息界面：
-![imag](https://github.com/gritJack/Wapp/blob/master/images/信息.jpg)
-***
+
 
 
 ## 参考文档

@@ -1,0 +1,5 @@
+.image{
+height: 60rpx;
+width: 60rpx;
+
+}
