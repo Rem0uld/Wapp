@@ -1,16 +1,8 @@
-<cu-custom bgColor="bg-white" isBack="{{false}}">
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">发表评价</view>
 </cu-custom>
 
-<view class="box">
-  <view class="cu-bar bg-white">
-    <view class="action" bindtap="goBack">
-      <text class="cuIcon-back text-gray"></text> 返回
-    </view>
-    <view class="content text-blod">
-      发表评价
-    </view>
-  </view>
-</view>
+
 
 <view class="cu-list menu-avatar solids-bottom">
   <view class="cu-item">
@@ -30,12 +22,17 @@
 
 <view class="cu-bar bg-white margin-top solid-bottom">
   <view class="action">
-    <text class="cuIcon-title text-blue"></text>整体评分：
+    <text class="cuIcon-title text-blue"></text>评分
   </view>
 </view>
 
-<view class="bg-white">
-  <block wx:for="{{stars}}" wx:key>
-    <image class="image" src="{{nullsrc}}"></image>
+
+<view class='box bg-white'>
+<text class='margin'>整体评价</text>
+  <block wx:for='{{scoreArray}}' wx:key='item'>
+    <view class='starLen' bindtouchmove='changeScore' bindtap='changeScore'>
+      <image class='star' src="{{score>index?fullStarUrl:nullStarUrl}}" />
+    </view>
   </block>
+  <view class='scoreContent'>{{scoreContent}}</view>
 </view>

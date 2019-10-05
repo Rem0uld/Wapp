@@ -1,5 +1,21 @@
-.image{
-height: 60rpx;
-width: 60rpx;
+.starLen{
+  margin-right: 10px;
+  display: inline-block;
+}
 
+.star{
+  width:20px;
+  height:20px;
+  vertical-align:text-bottom;
+  display: inline-block;
+}
+.scoreContent{
+  margin-left: 100px;
+  display: inline-block;
+}
+.box{
+  display: flex;
+	position: relative;
+	align-items: center;
+	min-height: 100rpx;
 }
