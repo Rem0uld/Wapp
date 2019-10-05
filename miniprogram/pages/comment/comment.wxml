@@ -1,0 +1,29 @@
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+</cu-custom>
+
+<view class="box">
+  <view class="cu-bar bg-white">
+    <view class="action" bindtap="goBack">
+      <text class="cuIcon-back text-gray"></text> 返回
+    </view>
+    <view class="content text-blod">
+      发表评价
+    </view>
+  </view>
+</view>
+
+<view class="cu-list menu-avatar solids-bottom solid-blod">
+  <view class="cu-item">
+    <view class="cu-avatar round l" style="background-image:url({{}});"></view>
+    <view class="content flex-sub">
+      <view class="text-gray">田科老师</view>
+      <view class="text-cut text-gray" style="width:80px">
+        <text>ssssssssssssssssssss</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="多行文本输入框"></textarea>
+</view>

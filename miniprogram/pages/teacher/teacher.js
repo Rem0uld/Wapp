@@ -17,6 +17,13 @@ Page({
     }],
   },
 
+  addComment:function(res){
+   wx.navigateTo({
+     url: '../comment/comment',
+   })
+
+  },
+
   onLoad: function(options) {
     db.collection('teacherInfo').get({
       success: res => {

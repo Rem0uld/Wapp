@@ -98,6 +98,13 @@
 					"id": -1,
 					"name": "teacher",
 					"pathName": "pages/teacher/teacher",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "comment",
+					"pathName": "pages/comment/comment",
 					"scene": null
 				}
 			]
