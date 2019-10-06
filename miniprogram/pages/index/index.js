@@ -6,15 +6,14 @@ Page({
   },
   data: {
     avatarUrl: '',
-    userInfo:{},
+    userInfo: {},
     userName: 'null',
     userClass: 'null',
-    elements:[
-      {
-        title:'测试',
-        name:'answer',
-        icon:'question',
-        color:'blue'
+    elements: [{
+        title: '测试',
+        name: 'answer',
+        icon: 'question',
+        color: 'blue'
       },
       {
         title: '预约',
@@ -35,7 +34,6 @@ Page({
         color: 'pink'
       },
     ]
-
   },
 
   onLoad: function(options) {
@@ -43,20 +41,14 @@ Page({
       _openid: app.globalData.openid,
     }).get({
       success: res => {
-        db.collection('userInfo').doc(res.data[0]._id).get({
-          success: res => {
-           this.setData({
-            userInfo:res.data.userInfo,
-            avatarUrl:res.data.avatarUrl,
-            userName:res.data.name,
-            userClass:res.data._class,
-           })
-            
-          }
+        console.log(res)
+        this.setData({
+          userInfo: res.data[0].userInfo,
+          avatarUrl: res.data[0].avatarUrl,
+          userName: res.data[0].name,
+          userClass: res.data[0]._class,
         })
       }
     })
   },
-
-  
 })

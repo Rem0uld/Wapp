@@ -13,7 +13,7 @@ Page({
     scoreContent: '',
     commentContent: '',
   },
-  changeScore: function (e) {
+  changeScore: function(e) {
     var that = this;
     var num = 0;
     var touchX = e.touches[0].pageX;
@@ -37,24 +37,28 @@ Page({
     }
   },
 
-  submit: function (e) {
-    console.log(e)
+  submit: function(e) {
+    db.collection('a').get({
+      success: res => {
+        console.log(res)
+      }
+    })
   },
 
-  back: function () {
+  back: function() {
     wx.navigateBack({
       delta: 1,
     })
   },
 
-  textareaAInput: function (e) {
+  textareaAInput: function(e) {
 
 
 
   },
 
 
-  onLoad: function (e) {
+  onLoad: function(e) {
     db.collection("teacherInfo").get({
       success: res => {
         this.setData({
@@ -69,6 +73,14 @@ Page({
           }
         }
       },
+    })
+
+    db.collection("userInfo").where({
+      _openid: app.globalData.openid,
+    }).get({
+      success:res=>{
+        console.log(res)
+      }
     })
   }
 })
