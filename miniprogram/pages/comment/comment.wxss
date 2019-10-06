@@ -1,8 +1,7 @@
 .starLen{
-  margin-right: 10px;
+  margin-right:10px;
   display: inline-block;
 }
-
 .star{
   width:20px;
   height:20px;
@@ -10,7 +9,7 @@
   display: inline-block;
 }
 .scoreContent{
-  margin-left: 100px;
+  margin-left:100px;
   display: inline-block;
 }
 .box{
@@ -18,4 +17,9 @@
 	position: relative;
 	align-items: center;
 	min-height: 100rpx;
+}
+.fixed-bottom{
+    bottom: 0;
+    width: 100%;
+    position: fixed;
 }
