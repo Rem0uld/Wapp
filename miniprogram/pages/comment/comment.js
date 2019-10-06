@@ -3,6 +3,8 @@ const db = wx.cloud.database();
 Page({
 
   data: {
+    userName: '',
+    userAvatar: '',
     teachers: [],
     teaInf: {},
     fullStarUrl: '../../images/fullstar.png',
@@ -38,10 +40,13 @@ Page({
   },
 
   submit: function(e) {
-    db.collection('a').get({
-      success: res => {
+    db.collection('comment').doc('田科').update({
+      data:{
+    
+        a:'ss'
+      },success:res=>{
         console.log(res)
-      }
+      },fail:console.error
     })
   },
 
@@ -52,7 +57,9 @@ Page({
   },
 
   textareaAInput: function(e) {
-
+    this.setData({
+      commentContent: e.detail.value,
+    })
 
 
   },
@@ -78,8 +85,11 @@ Page({
     db.collection("userInfo").where({
       _openid: app.globalData.openid,
     }).get({
-      success:res=>{
-        console.log(res)
+      success: res => {
+        this.setData({
+          userName: res.data[0].name,
+          userAvatar: res.data[0].avatarUrl,
+        })
       }
     })
   }
