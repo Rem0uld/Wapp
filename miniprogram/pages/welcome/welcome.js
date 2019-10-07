@@ -4,11 +4,10 @@ Page({
   data: {
     avatarUrl: '',
     userInfo: {},
-    
   },
-  userLogin: function () {
+  userLogin: function() {
     wx.getSetting({ //调用接口判断是否登录
-      success: res => { //调用成功调用获取信息API
+      success: res => { //成功调用获取信息API
         console.log('调用getsetting成功');
         wx.getUserInfo({
           success: res => { //调用成功获取用户信息
@@ -17,22 +16,17 @@ Page({
               avatarUrl: res.userInfo.avatarUrl,
               userInfo: res.userInfo,
             })
-
             wx.cloud.callFunction({ //调用云函数，获取用户openid
               name: 'login',
               data: {},
-              success: res => { //调用成功并获取到用户openid将openid传递给globalData
+              success: res => { //调用成功
                 console.log('云函数调用成功')
-                app.globalData.openid = res.result.openid
               },
               fail: err => {
                 console.error(' 调用云函数失败', err)
               }
             })
-
-            db.collection('userInfo').where({
-              _openid: app.globalData.openid,
-            }).get({ //根据openid寻找到对应集合，如果没有记录则添加记录
+            db.collection('userInfo').get({ //寻找到对应集合，如果没有记录则添加记录
               success: res => {
                 if (res.data.length == 0) {
                   console.log('未找到记录，正在添加');
@@ -57,10 +51,8 @@ Page({
     })
   },
 
-  goIndex: function () { //授权完成跳转到首页
-    db.collection('userInfo').where({
-      _openid: app.globalData.openid,
-    }).get({
+  goIndex: function() { //授权完成跳转到首页
+    db.collection('userInfo').get({
       success: res => {
         if (res.data.length == 0) {
           wx.showToast({
@@ -92,7 +84,7 @@ Page({
     })
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {

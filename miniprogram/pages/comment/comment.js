@@ -18,7 +18,7 @@ Page({
     commentContent: '',
   },
 
-  changeScore: function(e) {//评分
+  changeScore: function(e) { //评分
     var that = this;
     var num = 0;
     var touchX = e.touches[0].pageX;
@@ -42,18 +42,27 @@ Page({
     }
   },
 
-  submit: function(e) {//提交数据到数据库
-    wx.cloud.callFunction({//调用云函数添加数据，避免权限问题
+  submit: function(e) { //提交数据到数据库
+    console.log(app.globalData.openid)
+    wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
       name: 'add',
       data: {
         id: this.data.teaInf.name,
         name: this.data.userName,
         avatar: this.data.userAvatar,
         comment: this.data.commentContent,
+        score:this.data.score,
         openid: this.data.openid
       },
       success: e => {
-        console.log(e)
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 3000,
+        })
+        wx.reLaunch({
+          url: '../teacher/teacher',
+        })
       },
       fail: e => {
         console.log(e)
@@ -91,7 +100,7 @@ Page({
       },
     })
 
-    db.collection("userInfo").where({//获取评论者数据
+    db.collection("userInfo").where({ //获取评论者数据
       _openid: app.globalData.openid,
     }).get({
       success: res => {

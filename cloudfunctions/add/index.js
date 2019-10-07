@@ -14,6 +14,7 @@ exports.main = async(event, context) => {
           'name': event.name,
           'avatar': event.avatar,
           'content': event.comment,
+          'score':event.score,
           '_openid':event.openid
         })
       },

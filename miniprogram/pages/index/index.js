@@ -1,5 +1,4 @@
 const db = wx.cloud.database();
-const app = getApp();
 Page({
   options: {
     addGlobalClass: true,
@@ -37,9 +36,7 @@ Page({
   },
 
   onLoad: function(options) {
-    db.collection('userInfo').where({
-      _openid: app.globalData.openid,
-    }).get({
+    db.collection('userInfo').get({
       success: res => {
         console.log(res)
         this.setData({

@@ -1,9 +1,8 @@
 const app = getApp();
 const db = wx.cloud.database();
 Page({
-
   data: {
-    comment:[],
+    comment: [],
     teachers: [],
     teaInf: {},
     swiperList: [{
@@ -18,10 +17,10 @@ Page({
     }],
   },
 
-  addComment:function(res){
-   wx.navigateTo({
-     url: '../comment/comment',
-   })
+  addComment: function(res) {
+    wx.navigateTo({
+      url: '../comment/comment',
+    })
 
   },
 
@@ -48,19 +47,17 @@ Page({
                 url: this.data.teaInf.pic3
               }],
             })
+            db.collection('comment').doc(this.data.teaInf.name).get({
+              success: e => {              
+                this.setData({//获取相应评论
+                  comment: e.data.comment
+                })
+              }
+            })
           }
         }
       }
     })
-    db.collection('comment').doc(this.data.teaInf.name).get({
-      success:e=>{
-        console.log(e.data.comment)
-        this.setData({
-          comment:e.data.comment
-        })
-      }
-    })
-
   },
 
 
