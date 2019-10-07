@@ -2,6 +2,7 @@ const app = getApp();
 const db = wx.cloud.database();
 Page({
   data: {
+    status: true,
     comment: [],
     teachers: [],
     teaInf: {},
@@ -20,6 +21,24 @@ Page({
   addComment: function(res) {
     wx.navigateTo({
       url: '../comment/comment',
+    })
+
+  },
+
+  order: function(res) {
+    const that = this
+    wx.showModal({
+      title: '确认信息',
+      content: '是否确认预约？',
+      success(res) {
+        if (res.confirm) {
+          that.setData({
+            status: false,
+          })
+        } else if (res.cancel) {
+          console.log('取消')
+        }
+      }
     })
 
   },
@@ -48,8 +67,8 @@ Page({
               }],
             })
             db.collection('comment').doc(this.data.teaInf.name).get({
-              success: e => {              
-                this.setData({//获取相应评论
+              success: e => {
+                this.setData({ //获取相应评论
                   comment: e.data.comment
                 })
               }
