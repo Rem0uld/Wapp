@@ -1,5 +1,4 @@
 const app = getApp();
-
 Page({
     data: {
         score: '',

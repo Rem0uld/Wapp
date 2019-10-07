@@ -11,11 +11,11 @@ Page({
     teaInf: {},
     fullStarUrl: '../../images/fullstar.png',
     nullStarUrl: '../../images/nullstar.png',
-    score: 0,
+    score: 5,
     scoreArray: [1, 2, 3, 4, 5],
     scoreText: ['1星', '2星', '3星', '4星', '5星'],
     scoreContent: '',
-    commentContent: '',
+    commentContent: '未填写评价，默认好评！'
   },
 
   changeScore: function(e) { //评分
@@ -43,7 +43,6 @@ Page({
   },
 
   submit: function(e) { //提交数据到数据库
-    console.log(app.globalData.openid)
     wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
       name: 'add',
       data: {
@@ -51,7 +50,7 @@ Page({
         name: this.data.userName,
         avatar: this.data.userAvatar,
         comment: this.data.commentContent,
-        score:this.data.score,
+        score: this.data.score,
         openid: this.data.openid
       },
       success: e => {
@@ -77,13 +76,30 @@ Page({
   },
 
   textareaAInput: function(e) {
-    this.setData({
-      commentContent: e.detail.value,
-    })
+    if (e.detail.cursor == 0) {
+      this.setData({
+        commentContent: '未填写评价，默认好评！',
+      })
+    } else {
+      this.setData({
+        commentContent: e.detail.value,
+      })
+    }
   },
 
   onLoad: function(e) {
-    console.log(app.globalData.openid)
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: e => {
+        this.setData({
+          openid: e.result.openid,
+        })
+      },
+      fail: console.error
+
+    })
+
     db.collection("teacherInfo").get({
       success: res => {
         this.setData({
@@ -100,9 +116,7 @@ Page({
       },
     })
 
-    db.collection("userInfo").where({ //获取评论者数据
-      _openid: app.globalData.openid,
-    }).get({
+    db.collection("userInfo").get({
       success: res => {
         this.setData({
           userName: res.data[0].name,

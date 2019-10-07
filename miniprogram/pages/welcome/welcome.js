@@ -37,6 +37,7 @@ Page({
                     }
                   })
                   console.log('用户数据添加成功')
+
                 } else {
                   console.log('已有记录，不添加');
                 }
