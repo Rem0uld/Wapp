@@ -1,5 +1,7 @@
 const app = getApp();
 const db = wx.cloud.database();
+var id = '';
+var teachers = [];
 Page({
   data: {
     status: true,
@@ -40,19 +42,22 @@ Page({
         }
       }
     })
-
+    console.log(id)
+    db.collection('userInfo').doc(id).update({
+      data: {
+        order: this.data.teaInf.name
+      }
+    })
   },
 
   onLoad: function(options) {
     db.collection('teacherInfo').get({
       success: res => {
-        this.setData({
-          teachers: res.data[0].teachers, //拿到关于教师数据
-        })
-        for (let i = 0; i <= this.data.teachers.length; i++) {
-          if (this.data.teachers[i].name == app.globalData.teacher) {
+        teachers = res.data[0].teachers; //拿到关于教师数据
+        for (let i = 0; i <= teachers.length; i++) {
+          if (teachers[i].name == app.globalData.teacher) {
             this.setData({
-              teaInf: this.data.teachers[i], //筛选出选中的教师数据
+              teaInf: teachers[i], //筛选出选中的教师数据
             })
             this.setData({
               swiperList: [{
@@ -75,6 +80,11 @@ Page({
             })
           }
         }
+      }
+    })
+    db.collection('userInfo').get({
+      success: e => {
+        id = e.data[0]._id
       }
     })
   },

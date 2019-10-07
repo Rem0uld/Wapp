@@ -1,13 +1,12 @@
 const app = getApp();
 const db = wx.cloud.database();
-const _ = db.command
+const _ = db.command;
+var teachers = [];
+var userAvatar='';
+var openid = '';
 Page({
-
   data: {
-    openid: '',
     userName: '',
-    userAvatar: '',
-    teachers: [],
     teaInf: {},
     fullStarUrl: '../../images/fullstar.png',
     nullStarUrl: '../../images/nullstar.png',
@@ -48,10 +47,10 @@ Page({
       data: {
         id: this.data.teaInf.name,
         name: this.data.userName,
-        avatar: this.data.userAvatar,
+        avatar: userAvatar,
         comment: this.data.commentContent,
         score: this.data.score,
-        openid: this.data.openid
+        openid: openid
       },
       success: e => {
         wx.showToast({
@@ -92,9 +91,9 @@ Page({
       name: 'login',
       data: {},
       success: e => {
-        this.setData({
-          openid: e.result.openid,
-        })
+        
+          openid=e.result.openid;
+      
       },
       fail: console.error
 
@@ -102,13 +101,11 @@ Page({
 
     db.collection("teacherInfo").get({
       success: res => {
-        this.setData({
-          teachers: res.data[0].teachers, //拿到关于教师数据
-        })
-        for (let i = 0; i <= this.data.teachers.length; i++) {
-          if (this.data.teachers[i].name == app.globalData.teacher) {
+          teachers= res.data[0].teachers; //拿到关于教师数据
+        for (let i = 0; i <=teachers.length; i++) {
+          if (teachers[i].name == app.globalData.teacher) {
             this.setData({
-              teaInf: this.data.teachers[i], //筛选出选中的教师数据
+              teaInf:teachers[i], //筛选出选中的教师数据
             })
             console.log(this.data.teaInf)
           }
@@ -118,9 +115,9 @@ Page({
 
     db.collection("userInfo").get({
       success: res => {
+        userAvatar=res.data[0].avatarUrl;
         this.setData({
-          userName: res.data[0].name,
-          userAvatar: res.data[0].avatarUrl,
+          userName: res.data[0].name,     
         })
       }
     })

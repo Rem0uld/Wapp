@@ -31,6 +31,7 @@ Page({
                     number: userValue.userNumber,
                     phone: userValue.userPhone,
                     score:0,
+                    order:'暂无'
                   }
                 })
                 setTimeout(function() {
