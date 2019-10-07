@@ -1,5 +1,6 @@
 const app = getApp();
 const db = wx.cloud.database();
+const _ = db.command
 Page({
 
   data: {
@@ -40,13 +41,20 @@ Page({
   },
 
   submit: function(e) {
-    db.collection('comment').doc('田科').update({
-      data:{
-    
-        a:'ss'
-      },success:res=>{
-        console.log(res)
-      },fail:console.error
+    wx.cloud.callFunction({
+      name: 'add',
+      data: {
+        id: '田科',
+        name: this.data.userName,
+        avatar: this.data.userAvatar,
+        comment: this.data.commentContent
+      },
+      success: e => {
+        console.log(e)
+      },
+      fail: e => {
+        console.log(e)
+      }
     })
   },
 

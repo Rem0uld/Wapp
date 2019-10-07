@@ -14,5 +14,4 @@ exports.main = async (event, context) => {
   }
   sco = (rNum / event.choosed.length) * 100;
   return sco;
-  
 }
