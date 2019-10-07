@@ -34,14 +34,14 @@
     </view>
   </view>
 
-  <view wx:for="{{}}" wx:key>
+  <view wx:for="{{comment}}" wx:key>
     <view class="cu-bar bg-white">
       <view class="action">
-        <view class="cu-avatar round xs margin" style="background-image:url({{teaInf.avatar}});"></view>学生A
+        <view class="cu-avatar round xs margin" style="background-image:url({{item.avatar}});"></view>{{item.name}}
       </view>
     </view>
     <view class="cu-bar bg-white solid-bottom">
-      <text class="margin-left-xl">内容</text>
+      <text class="margin-left-xl">{{item.content}}</text>
     </view>
   </view>
 

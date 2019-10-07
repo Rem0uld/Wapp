@@ -3,6 +3,7 @@ const db = wx.cloud.database();
 Page({
 
   data: {
+    comment:[],
     teachers: [],
     teaInf: {},
     swiperList: [{
@@ -51,6 +52,15 @@ Page({
         }
       }
     })
+    db.collection('comment').doc(this.data.teaInf.name).get({
+      success:e=>{
+        console.log(e.data.comment)
+        this.setData({
+          comment:e.data.comment
+        })
+      }
+    })
+
   },
 
 

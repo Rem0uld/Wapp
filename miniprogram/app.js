@@ -19,6 +19,5 @@ App({
     openid:'',
     score:'',
     teacher:'',
-    
   }
 })

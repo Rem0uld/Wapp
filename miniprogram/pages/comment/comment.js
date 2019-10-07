@@ -4,6 +4,7 @@ const _ = db.command
 Page({
 
   data: {
+    openid: '',
     userName: '',
     userAvatar: '',
     teachers: [],
@@ -16,7 +17,8 @@ Page({
     scoreContent: '',
     commentContent: '',
   },
-  changeScore: function(e) {
+
+  changeScore: function(e) {//评分
     var that = this;
     var num = 0;
     var touchX = e.touches[0].pageX;
@@ -40,14 +42,15 @@ Page({
     }
   },
 
-  submit: function(e) {
-    wx.cloud.callFunction({
+  submit: function(e) {//提交数据到数据库
+    wx.cloud.callFunction({//调用云函数添加数据，避免权限问题
       name: 'add',
       data: {
-        id: '田科',
+        id: this.data.teaInf.name,
         name: this.data.userName,
         avatar: this.data.userAvatar,
-        comment: this.data.commentContent
+        comment: this.data.commentContent,
+        openid: this.data.openid
       },
       success: e => {
         console.log(e)
@@ -68,12 +71,10 @@ Page({
     this.setData({
       commentContent: e.detail.value,
     })
-
-
   },
 
-
   onLoad: function(e) {
+    console.log(app.globalData.openid)
     db.collection("teacherInfo").get({
       success: res => {
         this.setData({
@@ -90,7 +91,7 @@ Page({
       },
     })
 
-    db.collection("userInfo").where({
+    db.collection("userInfo").where({//获取评论者数据
       _openid: app.globalData.openid,
     }).get({
       success: res => {
