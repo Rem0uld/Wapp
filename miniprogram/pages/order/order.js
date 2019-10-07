@@ -1,6 +1,5 @@
 const db = wx.cloud.database();
 const app = getApp();
-
 Page({
   data: {
     score: null,
@@ -23,9 +22,7 @@ Page({
         })
       }
     })
-    db.collection('userInfo').where({
-      _openid: app.globalData.openid
-    }).get({
+    db.collection('userInfo').get({
       success: res => {
         console.log(res.data[0].score)
         this.setData({
@@ -47,6 +44,11 @@ Page({
               }
             }
           })
+      }
+    })
+    db.collection('comment').doc('田科').get({
+      success:e=>{
+        console.log(e.data.comment.length)
       }
     })
   },

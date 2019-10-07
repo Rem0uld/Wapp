@@ -21,7 +21,7 @@
               {{item.status}}
               <view class="text-gray text-sm">
                 <text class="cuIcon-favorfill margin-lr-xs"></text>{{item.stars}}
-                <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.message.number}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.comment}}
                 <view class=""></view>
               </view>
             </view>

@@ -233,9 +233,7 @@ Page({
       }
     })
   },
-  onUnload:function(){
-    
+  onUnload:function(){ 
       subTag=true;
-    
   }
 })
