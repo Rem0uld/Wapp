@@ -4,6 +4,7 @@ var id = '';
 var teachers = [];
 var orderName = '';
 var infomation='';
+var formid='';
 Page({
   data: {
     modalName: null,
@@ -43,13 +44,22 @@ Page({
   },
 
   change:function(e){
-    console.log(e.place)
-    infomation = e;
+    console.log(e)
+    infomation = e.detail.value;
   },
 
   submit:function(e){
-
-
+    console.log(e.detail.formId)
+    formid = e.detail.formId;
+    wx.cloud.callFunction({
+      name:'templateMessage',
+      data:{
+        name:this.data.teainf.name,
+        place:infomation
+      },success:e=>{
+        console.log(e)
+      },fail:console.error
+    })
   },
 
   onLoad: function(options) {
