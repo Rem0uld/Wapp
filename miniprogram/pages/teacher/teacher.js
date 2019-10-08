@@ -3,8 +3,11 @@ const db = wx.cloud.database();
 var id = '';
 var teachers = [];
 var orderName = '';
+var infomation='';
 Page({
   data: {
+    modalName: null,
+    place: [],
     status: true,
     comment: [],
     teachers: [],
@@ -25,41 +28,39 @@ Page({
     wx.navigateTo({
       url: '../comment/comment',
     })
+  },
 
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
   },
 
   order: function(res) {
-    const that = this
-    wx.showModal({
-      title: '确认信息',
-      content: '是否确认预约？',
-      success(res) {
-        if (res.confirm) {
-          that.setData({
-            status: false,
-          })
-        } else if (res.cancel) {
-          console.log('取消')
-        }
-      }
+    this.setData({
+      modalName: 'bottomModal',
     })
-    console.log(id)
-    db.collection('userInfo').doc(id).update({
-      data: {
-        order: this.data.teaInf.name
-      }
-    })
+  },
+
+  change:function(e){
+    console.log(e.place)
+    infomation = e;
+  },
+
+  submit:function(e){
+
+
   },
 
   onLoad: function(options) {
     db.collection('userInfo').get({
       success: e => {
         id = e.data[0]._id;
-        if (e.data[0].order != ''){
-          this.setData({
-            status:false
-          })
-        }
+        // if (e.data[0].order != '') {
+        //   this.setData({
+        //     status: false
+        //   })
+        // }
       }
     })
     db.collection('teacherInfo').get({
@@ -94,8 +95,15 @@ Page({
         }
       }
     })
+    db.collection('place').get({
+      success: e => {
+        this.setData({
+          place: e.data[0].place
+        })
+      },
+      fail: console.error
+    })
 
-  
   },
 
 

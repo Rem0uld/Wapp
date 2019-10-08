@@ -48,8 +48,28 @@
 
 
 <view class="cu-bar bg-white tabbar border shop flex justify-center fixed-bottom">
-  <view class="bg-gray submit"  wx:if="{{status}}">评价</view>
+  <view class="bg-gray submit" wx:if="{{status}}">评价</view>
   <view class="bg-orange submit" bindtap="addComment" wx:else>评价</view>
   <view class="bg-red submit" bindtap="order" wx:if='{{status}}'>预约</view>
   <view class="bg-gray submit" bindtap="orderCancel" wx:else>已预约</view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green" bindtap="submit">确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+  
+      <radio-group class="block" bindchange="change">
+        <view class="cu-list menu text-left">
+          <view class="cu-item" wx:for="{{place}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">时间：{{item.time}}  地点：{{item.place}}</view>
+              <radio class="round" value="{{item}}"></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+  </view>
 </view>
