@@ -3,7 +3,7 @@
 </cu-custom>
 
 
-<scroll-view class="box2" scroll-y="true">
+<scroll-view scroll-y="true" style="height:150vh;">
   <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{swiperList}}" wx:key>
       <image src="{{item.url}}" mode="aspectFill"></image>
@@ -44,9 +44,8 @@
       <text class="margin-left-xl">{{item.content}}</text>
     </view>
   </view>
-
-
 </scroll-view>
+
 
 <view class="cu-bar bg-white tabbar border shop flex justify-center fixed-bottom">
   <view class="bg-gray submit"  wx:if="{{status}}">评价</view>

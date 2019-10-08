@@ -2,6 +2,7 @@ const app = getApp();
 const db = wx.cloud.database();
 var id = '';
 var teachers = [];
+var orderName = '';
 Page({
   data: {
     status: true,
@@ -51,6 +52,16 @@ Page({
   },
 
   onLoad: function(options) {
+    db.collection('userInfo').get({
+      success: e => {
+        id = e.data[0]._id;
+        if (e.data[0].order != ''){
+          this.setData({
+            status:false
+          })
+        }
+      }
+    })
     db.collection('teacherInfo').get({
       success: res => {
         teachers = res.data[0].teachers; //拿到关于教师数据
@@ -71,6 +82,7 @@ Page({
                 url: this.data.teaInf.pic3
               }],
             })
+
             db.collection('comment').doc(this.data.teaInf.name).get({
               success: e => {
                 this.setData({ //获取相应评论
@@ -82,11 +94,8 @@ Page({
         }
       }
     })
-    db.collection('userInfo').get({
-      success: e => {
-        id = e.data[0]._id
-      }
-    })
+
+  
   },
 
 
