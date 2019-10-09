@@ -116,6 +116,11 @@ Page({
       success: e => {
         id = e.data[0]._id;
         openid = e.data[0]._openid;
+        if(e.data[0].order.tea == app.globalData.teacher){
+          this.setData({
+            status:false
+          })
+        }
       }
     })
     db.collection('teacherInfo').get({
