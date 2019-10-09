@@ -2,7 +2,6 @@ const app = getApp();
 const db = wx.cloud.database();
 var id = '';
 var teachers = [];
-var orderName = '';
 var time = '';
 var place = '';
 var openid = '';
@@ -49,49 +48,67 @@ Page({
     time = e.detail.value;
   },
 
-  change2:function(e){
+  change2: function(e) {
     console.log(e)
     place = e.detail.value;
   },
 
   submit: function(e) {
-    wx.showLoading({
-      title: '提交中',
-    })
-    wx.cloud.callFunction({
-      name: 'template',
-      data: {
-        openid:openid,
-        formid: e.detail.formId,
-        name: this.data.teaInf.name,
-        place: place,
-        time:time,
-      },
-      success: res => {
-        wx.hideLoading();
-        console.log(res);
-        wx.showToast({
-          title: '预约成功',
-          icon: 'success',
-          duration: 2000,
-          mask: true,
-          success: function(res) {
-            wx.navigateTo({
-              url: '../order/order',
-            })
-          },
-          fail: function(res) {
-            console.error
-          },
-          complete: function(res) {
-            wx.navigateTo({
-              url: '../order/order',
-            })
-          },
-        })
-      },
-      fail: console.error
-    })
+    if ((time && place) == '') {
+      console.log('错误')
+      wx.showModal({
+        title: '错误',
+        content: '请将所有选项选完',
+      })
+    } else {
+      wx.showLoading({
+        title: '提交中',
+      })
+      wx.cloud.callFunction({
+        name: 'template',
+        data: {
+          openid: openid,
+          formid: e.detail.formId,
+          name: this.data.teaInf.name,
+          place: place,
+          time: time,
+        },
+        success: res => {
+          wx.hideLoading();
+          console.log(res);
+          wx.showToast({
+            title: '预约成功',
+            icon: 'success',
+            duration: 2000,
+            mask: true,
+            success: function(res) {
+              wx.navigateTo({
+                url: '',
+              })
+            },
+            fail: function(res) {
+              console.error
+            },
+            complete: function(res) {
+              wx.navigateTo({
+                url: '',
+              })
+            },
+          })
+        },
+        fail: console.error
+      })
+
+      db.collection('userInfo').doc(id).update({
+        data: {
+          order: {
+            tea: this.data.teaInf.name,
+            place: place,
+            time: time,
+          }
+        }
+      })
+    }
   },
 
   onLoad: function(options) {
