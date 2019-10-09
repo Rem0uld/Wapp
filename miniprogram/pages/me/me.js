@@ -8,20 +8,19 @@ Page({
     avatarUrl: '',
     nickName: '',
     score:'',
-    order:'暂无'
+    order:''
   },
 
 
   onLoad: function(options) { //通过openid获取到数据库中的用户信息
-    db.collection('userInfo').where({
-      _openid: app.globalData.openid
-    }).get({
+    db.collection('userInfo').get({
       success: res => {
         console.log(res.data)
         this.setData({
           avatarUrl: res.data[0].avatarUrl,
           nickName: res.data[0].userInfo.nickName,
-          score:res.data[0].score
+          score:res.data[0].score,
+          order:res.data[0].order.tea
         })
 
       }

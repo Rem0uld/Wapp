@@ -8,6 +8,7 @@ var openid = '';
 Page({
   data: {
     modalName: null,
+    scoreArr:[1,2,3,4,5],
     place: [],
     status: true,
     comment: [],
@@ -82,16 +83,16 @@ Page({
             duration: 2000,
             mask: true,
             success: function(res) {
-              wx.navigateTo({
-                url: '../orderinfo/orderinfo',
+              wx.switchTab({
+                url: '../me/me',
               })
             },
             fail: function(res) {
               console.error
             },
             complete: function(res) {
-              wx.navigateTo({
-                url: '../orderinfo/orderinfo',
+              wx.switchTab({
+                url: '../me/me',
               })
             },
           })
@@ -147,7 +148,7 @@ Page({
             db.collection('comment').doc(this.data.teaInf.name).get({
               success: e => {
                 this.setData({ //获取相应评论
-                  comment: e.data.comment
+                  comment: e.data.comment,
                 })
               }
             })

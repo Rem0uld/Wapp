@@ -12,6 +12,7 @@
           <text class="text-cut">{{item.quote}}</text>
         </view>
       </view>
+      
       <view class="cu-list menu-avatar">
         <view class="cu-item">
           <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>

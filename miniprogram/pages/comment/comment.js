@@ -5,7 +5,7 @@ var teachers = [];
 var userAvatar='';
 var openid = '';
 Page({
-  data: {
+  data: { 
     userName: '',
     teaInf: {},
     fullStarUrl: '../../images/fullstar.png',

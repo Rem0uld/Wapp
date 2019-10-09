@@ -23,7 +23,7 @@
 
   <view class="solids-bottom padding-xs flex align-center bg-white">
     <view class="flex-sub">
-      <view class="solid-bottom padding">{{teaInf.info}}</view>
+      <view class="padding">{{teaInf.info}}</view>
     </view>
   </view>
 
@@ -34,16 +34,32 @@
     </view>
   </view>
 
-  <view wx:for="{{comment}}" wx:key>
-    <view class="cu-bar bg-white">
-      <view class="action">
-        <view class="cu-avatar round xs margin" style="background-image:url({{item.avatar}});"></view>{{item.name}}
+  <view wx:for="{{comment}}" wx:key class="solid-bottom">
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+        <view class="cu-avatar round xs" style="background-image:url({{item.avatar}});"></view>
+        <view class="content flex-sub">
+          <view class="text-gray">{{item.name}}</view>
+          <view class="text-sm flex">
+            <text wx:for='{{5}}' wx:key>
+              <text class="cuIcon-favor text-yellow"></text>
+            </text>
+            <text wx:for='{{item.score}}'  wx:key>
+              <text class="cuIcon-favorfill text-yellow"></text>
+            </text>
+          </view>
+        </view>
       </view>
     </view>
-    <view class="cu-bar bg-white solid-bottom">
+
+
+
+    <view class="cu-bar bg-white">
       <text class="margin-left-xl">{{item.content}}</text>
     </view>
+
   </view>
+
 </scroll-view>
 
 

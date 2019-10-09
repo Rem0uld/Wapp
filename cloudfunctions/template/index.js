@@ -8,7 +8,7 @@ exports.main = async(event, context) => {
   try {
     const result = await cloud.openapi.templateMessage.send({
       touser: event.openid,
-      page: '',
+      page: 'me',
       data: {
         keyword1: {
           value: event.name

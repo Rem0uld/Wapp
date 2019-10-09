@@ -3,6 +3,7 @@ const app = getApp();
 var tag = 0;
 var choosed= [];
 var subTag= false;
+var answerArrs = []; //正确答案数组
 function countDown(that) {
   let sec = that.data.countDownSec;
   let min = that.data.countDownMin;
@@ -57,7 +58,7 @@ Page({
     newArr: [], //随机数数组
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
-    answerArr: [], //正确答案数组
+    
     //设置提交状态，防止提交后继续倒计时
   },
 
@@ -135,12 +136,10 @@ Page({
           }
         }
       }
-      choosed =  userArr;
-      this.setData({
-        answerArr: answerArr,
-      })
+      choosed =  userArr;  
+      answerArrs=answerArr,
       console.log(choosed);
-      console.log(this.data.answerArr);
+      console.log(answerArrs);
       wx.cloud.callFunction({
         name: 'score',
         data: {

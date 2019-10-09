@@ -10,8 +10,7 @@
     "pages/exercise/exercise",
     "pages/result/result",
     "pages/teacher/teacher",
-    "pages/comment/comment",
-    "pages/orderinfo/orderinfo"
+    "pages/comment/comment"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

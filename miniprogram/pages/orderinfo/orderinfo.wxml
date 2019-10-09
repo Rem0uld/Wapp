@@ -1,3 +1,0 @@
-<cu-custom bgColor="bg-gradual-red" isCustom="{{true}}">
-  <view slot="content">预约信息</view>
-</cu-custom>
