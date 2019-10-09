@@ -65,7 +65,18 @@
         <view class="cu-list menu text-left">
           <view class="cu-item" wx:for="{{place}}" wx:key>
             <label class="flex justify-between align-center flex-sub">
-              <view class="flex-sub">时间：{{item.time}} 地点：{{item.place}}</view>
+              <view class="flex-sub">时间：{{item.time}}</view>
+              <radio class='round' value='{{item.time}}'></radio>
+            </label>
+          </view>
+        </view>
+      </radio-group>
+
+      <radio-group class="block" bindchange="change2">
+        <view class="cu-list menu text-left">
+          <view class="cu-item" wx:for="{{place}}" wx:key>
+            <label class="flex justify-between align-center flex-sub">
+              <view class="flex-sub">地点：{{item.place}}</view>
               <radio class="round" value="{{item.place}}"></radio>
             </label>
           </view>

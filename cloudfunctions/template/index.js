@@ -7,7 +7,7 @@ cloud.init()
 exports.main = async(event, context) => {
   try {
     const result = await cloud.openapi.templateMessage.send({
-      touser: 'oBLVr5aDjt-3HhGi0JLvpOPUtE8Q',
+      touser: event.openid,
       page: '',
       data: {
         keyword1: {
@@ -17,7 +17,7 @@ exports.main = async(event, context) => {
           value: event.place
         },
         keyword3: {
-          value: '2019'
+          value: event.time
         },
       },
       templateId: 'XHN3jBEvtTlKOgiT-p7JTPT6_7MGaCie7E33uReUqDw',

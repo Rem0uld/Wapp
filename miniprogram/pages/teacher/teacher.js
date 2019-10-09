@@ -3,7 +3,9 @@ const db = wx.cloud.database();
 var id = '';
 var teachers = [];
 var orderName = '';
-var infomation='';
+var time = '';
+var place = '';
+var openid = '';
 Page({
   data: {
     modalName: null,
@@ -42,20 +44,53 @@ Page({
     })
   },
 
-  change:function(e){
-    infomation = e.detail.value;
+  change: function(e) {
+    console.log(e)
+    time = e.detail.value;
   },
 
-  submit:function(e){
+  change2:function(e){
+    console.log(e)
+    place = e.detail.value;
+  },
+
+  submit: function(e) {
+    wx.showLoading({
+      title: '提交中',
+    })
     wx.cloud.callFunction({
-      name:'template',
-      data:{
+      name: 'template',
+      data: {
+        openid:openid,
         formid: e.detail.formId,
-        name:this.data.teaInf.name,
-        place:infomation,
-      },success:res=>{
-        console.log(res)
-      },fail:console.error
+        name: this.data.teaInf.name,
+        place: place,
+        time:time,
+      },
+      success: res => {
+        wx.hideLoading();
+        console.log(res);
+        wx.showToast({
+          title: '预约成功',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
+          success: function(res) {
+            wx.navigateTo({
+              url: '../order/order',
+            })
+          },
+          fail: function(res) {
+            console.error
+          },
+          complete: function(res) {
+            wx.navigateTo({
+              url: '../order/order',
+            })
+          },
+        })
+      },
+      fail: console.error
     })
   },
 
@@ -63,11 +98,7 @@ Page({
     db.collection('userInfo').get({
       success: e => {
         id = e.data[0]._id;
-        // if (e.data[0].order != '') {
-        //   this.setData({
-        //     status: false
-        //   })
-        // }
+        openid = e.data[0]._openid;
       }
     })
     db.collection('teacherInfo').get({
