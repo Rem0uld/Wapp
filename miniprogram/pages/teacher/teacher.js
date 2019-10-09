@@ -52,11 +52,14 @@ Page({
     console.log(e.detail.formId)
     formid = e.detail.formId;
     wx.cloud.callFunction({
-      name:'templateMessage',
+      name:'template',
       data:{
         name:this.data.teainf.name,
         place:infomation
       },success:e=>{
+        wx.showToast({
+          title: '提交中',
+        })
         console.log(e)
       },fail:console.error
     })
