@@ -83,7 +83,7 @@ Page({
             mask: true,
             success: function(res) {
               wx.navigateTo({
-                url: '',
+                url: '../orderinfo/orderinfo',
               })
             },
             fail: function(res) {
@@ -91,7 +91,7 @@ Page({
             },
             complete: function(res) {
               wx.navigateTo({
-                url: '',
+                url: '../orderinfo/orderinfo',
               })
             },
           })

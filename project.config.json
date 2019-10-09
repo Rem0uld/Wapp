@@ -105,6 +105,13 @@
 					"id": -1,
 					"name": "comment",
 					"pathName": "pages/comment/comment",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "orderinfo",
+					"pathName": "pages/orderinfo/orderinfo",
 					"scene": null
 				}
 			]

@@ -1,18 +1,35 @@
-.box{
-    margin: 50rpx;
-    padding:30rpx;
-    display: flex;
+
+.checked {
+  background-color: rgba(27, 180, 27, 0.774);
+}
+
+.fixed-bottom {
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+.my-bar {
+	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 100rpx;
+	min-height: 150rpx;
 	justify-content: space-between;
-    border-bottom: solid 1px gray;
 }
-.checked{
-    background-color: rgba(27, 180, 27, 0.774);
+.box{
+ 	min-height: 150rpx;
+  width: 100%;
 }
-.fixed-bottom{
-    bottom: 0;
-    width: 100%;
-    position: fixed;
+
+.question-list {
+  padding: 15px;
+}
+
+.question-list-title {
+  font-size: 15px;
+}
+
+.question-title {
+  margin-left: 8px;
+  line-height: 25px;
 }

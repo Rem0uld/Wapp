@@ -49,8 +49,8 @@ function countDown(that) {
 Page({
   data: {
     textColor: 'blue',
-    countDownSec: 10,
-    countDownMin: 2,
+    countDownSec: 60,
+    countDownMin: 200,
      //选择好的数组
     questions: [], //题库
     tags: 0, //题目标识

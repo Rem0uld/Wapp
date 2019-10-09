@@ -2,23 +2,33 @@
   <view slot="content">考试</view>
 </cu-custom>
 
-<view class="cu-bar bg-white justify-center">
+<view class="cu-bar bg-white solid-bottom justify-center">
   <text class="cuIcon-time text-{{textColor}}">{{countDownMin}}分{{countDownSec}}秒</text>
 </view>
 
-<view class="cu-bar bg-white solid-bottom margin-lg padding-lg shadow">
-  <view class='action'>
-    <text class="text-black">{{tags+1}}/{{newArr.length}}.{{questions[newArr[tags]].title}}</text>
-  </view>
-</view>
 
-<view wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
-  <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box round" bindtap="chooseAnswer">
-    {{item.value}}、{{item.name}}
+<scroll-view scroll-y="true" style="height:960rpx">
+  <view style='padding-bottom:10rpx;'>
+    <view class="question-list">
+      <view class="question-list-title">
+        <text class='question-title'>{{tags+1}}/{{newArr.length}}.{{questions[newArr[tags]].title}}</text>
+      </view>
+    </view>
   </view>
-</view>
+  <image wx:if="{{questions[newArr[tags]].url}}" style="width: 100%; height:350rpx; background-color: #fff;" mode="scaleToFill" src="{{questions[newArr[tags]].url}}" data-src="{{questions[newArr[tags]].url}}" catchtap="showPic"></image>
 
-<view class="flex justify-center padding-bottom-xl padding-top-xl fixed-bottom">
+
+  <view class="my-bar bg-white solid-bottom" wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
+    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box" bindtap="chooseAnswer">
+      <text class="box text-l">
+        {{item.value}}、{{item.name}}
+      </text>
+    </view>
+  </view>
+
+</scroll-view>
+
+<view class="flex justify-center padding-bottom-xl padding-top-xl fixed-bottom bg-white">
   <button class="cu-btn round bg-blue shadow margin-right-lg" bindtap='beforeQuestion'>上一题</button>
 
   <button class="cu-btn bg-green round shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">
