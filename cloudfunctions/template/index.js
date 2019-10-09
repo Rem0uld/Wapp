@@ -17,7 +17,7 @@ exports.main = async(event, context) => {
           value: event.place
         },
         keyword3: {
-          value: '腾讯微信总部'
+          value: '2019'
         },
       },
       templateId: 'XHN3jBEvtTlKOgiT-p7JTPT6_7MGaCie7E33uReUqDw',

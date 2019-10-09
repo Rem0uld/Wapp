@@ -4,7 +4,6 @@ var id = '';
 var teachers = [];
 var orderName = '';
 var infomation='';
-var formid='';
 Page({
   data: {
     modalName: null,
@@ -44,23 +43,18 @@ Page({
   },
 
   change:function(e){
-    console.log(e)
     infomation = e.detail.value;
   },
 
   submit:function(e){
-    console.log(e.detail.formId)
-    formid = e.detail.formId;
     wx.cloud.callFunction({
       name:'template',
       data:{
-        name:this.data.teainf.name,
-        place:infomation
-      },success:e=>{
-        wx.showToast({
-          title: '提交中',
-        })
-        console.log(e)
+        formid: e.detail.formId,
+        name:this.data.teaInf.name,
+        place:infomation,
+      },success:res=>{
+        console.log(res)
       },fail:console.error
     })
   },
@@ -116,9 +110,5 @@ Page({
       },
       fail: console.error
     })
-
   },
-
-
-
 })
