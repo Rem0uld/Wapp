@@ -5,16 +5,26 @@ Page({
     score: null,
     teacherInfo: [],
   },
-  choosetech:function(res){
+  choosetech: function(res) {
     console.log(res.currentTarget.dataset.name);
     app.globalData.teacher = res.currentTarget.dataset.name;
     wx.navigateTo({
       url: '../teacher/teacher',
     })
-
   },
 
-  onLoad: function (options) {
+  onLoad: function(options) {
+
+    wx.cloud.callFunction({
+      name: 'count',
+      data: {},
+      success: e => {
+        console.log(e)
+      },fail:console.error
+    })
+
+
+
     db.collection('teacherInfo').get({
       success: res => {
         this.setData({
@@ -44,11 +54,6 @@ Page({
               }
             }
           })
-      }
-    })
-    db.collection('comment').doc('田科').get({
-      success:e=>{
-        console.log(e.data.comment.length)
       }
     })
   },
