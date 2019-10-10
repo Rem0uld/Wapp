@@ -1,8 +1,8 @@
 const db = wx.cloud.database();
 const app = getApp();
 var tag = 0;
-var choosed= [];
-var subTag= false;
+var choosed = [];
+var subTag = false;
 var answerArrs = []; //正确答案数组
 function countDown(that) {
   let sec = that.data.countDownSec;
@@ -52,13 +52,13 @@ Page({
     textColor: 'blue',
     countDownSec: 60,
     countDownMin: 200,
-     //选择好的数组
+    //选择好的数组
     questions: [], //题库
     tags: 0, //题目标识
     newArr: [], //随机数数组
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
-    
+
     //设置提交状态，防止提交后继续倒计时
   },
 
@@ -92,7 +92,7 @@ Page({
     this.setData({
       [nowChecked]: chooseArr,
     })
-    this.data.cardArr.splice(tag, 1, true);//变更选中数组
+    this.data.cardArr.splice(tag, 1, true); //变更选中数组
     var cardarr = this.data.cardArr;
     this.setData({
       cardArr: cardarr //实时更新选中的数组
@@ -109,7 +109,7 @@ Page({
         })
       }
     }, 500);
-  }, 
+  },
 
   submit: function() {
     var cardarr = this.data.cardArr;
@@ -136,9 +136,9 @@ Page({
           }
         }
       }
-      choosed =  userArr;  
-      answerArrs=answerArr,
-      console.log(choosed);
+      choosed = userArr;
+      answerArrs = answerArr,
+        console.log(choosed);
       console.log(answerArrs);
       wx.cloud.callFunction({
         name: 'score',
@@ -167,10 +167,10 @@ Page({
           wx.reLaunch({
             url: '../result/result',
           })
-          
-            subTag= true;
-          
-        } 
+
+          subTag = true;
+
+        }
       })
     } else {
       wx.showModal({
@@ -200,6 +200,15 @@ Page({
     })
   },
 
+  //放大图片
+  showPic: function(e) {
+    const src = e.currentTarget.dataset.src;
+    wx.previewImage({
+      current: src,
+      urls: [src]
+    })
+  },
+  
   onLoad: function(options) {
     console.log(this.data.tags)
     countDown(this); //初始化倒计时
@@ -232,7 +241,7 @@ Page({
       }
     })
   },
-  onUnload:function(){ 
-      subTag=true;
+  onUnload: function() {
+    subTag = true;
   }
 })

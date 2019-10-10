@@ -7,8 +7,10 @@ var place = '';
 var openid = '';
 Page({
   data: {
+    favorfill:'cuIcon-favorfill',
+    favor:'cuIcon-favor',
     modalName: null,
-    scoreArr:[1,2,3,4,5],
+    starArr:[1,2,3,4,5],
     place: [],
     status: true,
     comment: [],

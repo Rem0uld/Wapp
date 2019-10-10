@@ -14,7 +14,7 @@ Page({
     scoreArray: [1, 2, 3, 4, 5],
     scoreText: ['1星', '2星', '3星', '4星', '5星'],
     scoreContent: '',
-    commentContent: '未填写评价，默认好评！'
+    commentContent: '未填写评价！'
   },
 
   changeScore: function(e) { //评分
@@ -50,7 +50,7 @@ Page({
         avatar: userAvatar,
         comment: this.data.commentContent,
         score: this.data.score,
-        openid: openid
+        openid: openid,
       },
       success: e => {
         wx.showToast({

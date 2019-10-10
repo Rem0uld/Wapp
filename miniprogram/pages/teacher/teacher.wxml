@@ -34,28 +34,23 @@
     </view>
   </view>
 
-  <view wx:for="{{comment}}" wx:key class="solid-bottom">
+  <view wx:for="{{comment}}" wx:key class="solid-bottom" wx:for-item="cm">
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-        <view class="cu-avatar round xs" style="background-image:url({{item.avatar}});"></view>
+        <view class="cu-avatar round xs" style="background-image:url({{cm.avatar}});"></view>
         <view class="content flex-sub">
-          <view class="text-gray">{{item.name}}</view>
+          <view class="text-gray">{{cm.name}}</view>
           <view class="text-sm flex">
             <text wx:for='{{5}}' wx:key>
-              <text class="cuIcon-favor text-yellow"></text>
-            </text>
-            <text wx:for='{{item.score}}'  wx:key>
-              <text class="cuIcon-favorfill text-yellow"></text>
+              <text class="{{cm.score>index?favorfill:favor}} text-yellow"></text>
             </text>
           </view>
         </view>
       </view>
     </view>
 
-
-
     <view class="cu-bar bg-white">
-      <text class="margin-left-xl">{{item.content}}</text>
+      <text class="margin-left-xl">{{cm.content}}</text>
     </view>
 
   </view>
