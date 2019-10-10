@@ -9,16 +9,18 @@ var strts = [];
 var comments = [];
 
 exports.main = async(event, context) => {
-  db.collection('comment').get({
-    success: res => {
-      console.log(res)
-      for (let i = 0; i < res.data.length; i++) {
-        comments.push(res.data[i])
+  try {
+    const result = await db.collection('comment').get({
+      success: res => {
+        console.log(res)
+        for (let i = 0; i < res.data.length; i++) {
+          comments.push(res.data[i])
+        }
       }
-      return comments;
-    }
-  })
-
-
-
+    })
+    return comments
+  } catch (err) {
+    console.log(err)
+    return err
+  }
 }
