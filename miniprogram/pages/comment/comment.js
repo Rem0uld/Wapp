@@ -2,10 +2,10 @@ const app = getApp();
 const db = wx.cloud.database();
 const _ = db.command;
 var teachers = [];
-var userAvatar='';
+var userAvatar = '';
 var openid = '';
 Page({
-  data: { 
+  data: {
     userName: '',
     teaInf: {},
     fullStarUrl: '../../images/fullstar.png',
@@ -87,13 +87,17 @@ Page({
   },
 
   onLoad: function(e) {
+    db.collection('teachers').get({
+      success:e=>{
+        console.log(e)
+      }
+    })
+
     wx.cloud.callFunction({
       name: 'login',
       data: {},
       success: e => {
-        
-          openid=e.result.openid;
-      
+        openid = e.result.openid;
       },
       fail: console.error
 
@@ -101,11 +105,11 @@ Page({
 
     db.collection("teacherInfo").get({
       success: res => {
-          teachers= res.data[0].teachers; //拿到关于教师数据
-        for (let i = 0; i <=teachers.length; i++) {
+        teachers = res.data[0].teachers; //拿到关于教师数据
+        for (let i = 0; i <= teachers.length; i++) {
           if (teachers[i].name == app.globalData.teacher) {
             this.setData({
-              teaInf:teachers[i], //筛选出选中的教师数据
+              teaInf: teachers[i], //筛选出选中的教师数据
             })
             console.log(this.data.teaInf)
           }
@@ -115,9 +119,9 @@ Page({
 
     db.collection("userInfo").get({
       success: res => {
-        userAvatar=res.data[0].avatarUrl;
+        userAvatar = res.data[0].avatarUrl;
         this.setData({
-          userName: res.data[0].name,     
+          userName: res.data[0].name,
         })
       }
     })

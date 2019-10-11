@@ -11,8 +11,8 @@
   </swiper>
 
   <view class="bg-white cu-bar">
-    <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.avatar}});"></view>
-    <view class="text-lg box">{{teaInf.name}}</view>
+    <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.allinfo.avatar}});"></view>
+    <view class="text-lg box">{{teaInf._id}}</view>
   </view>
 
   <view class="cu-bar bg-white solid-bottom margin-top">
@@ -23,7 +23,7 @@
 
   <view class="solids-bottom padding-xs flex align-center bg-white">
     <view class="flex-sub">
-      <view class="padding">{{teaInf.info}}</view>
+      <view class="padding">{{teaInf.allinfo.info}}</view>
     </view>
   </view>
 

@@ -3,27 +3,26 @@
 </cu-custom>
 
 <view wx:if='{{score >= 60}}'>
-  <view class="cu-card case card" wx:for="{{teacherInfo}}" wx:key data-name="{{item.name}}" bindtap="choosetech">
+  <view class="cu-card case card" wx:for="{{teacherInfo}}" wx:key data-name="{{item._id}}" bindtap="choosetech">
     <view class="cu-item shadow">
       <view class="image">
-        <image src="{{item.pic}}" mode="widthFix"></image>
+        <image src="{{item.allinfo.pic}}" mode="widthFix"></image>
         <view class="cu-tag bg-red">名师</view>
         <view class="cu-bar bg-shadeBottom">
-          <text class="text-cut">{{item.quote}}</text>
+          <text class="text-cut">{{item.allinfo.quote}}</text>
         </view>
       </view>
       
       <view class="cu-list menu-avatar">
         <view class="cu-item">
-          <view class="cu-avatar round lg" style="background-image:url({{item.avatar}});"></view>
+          <view class="cu-avatar round lg" style="background-image:url({{item.allinfo.avatar}});"></view>
           <view class="content flex-sub">
-            <view class="text-gray">{{item.name}}</view>
+            <view class="text-gray">{{item._id}}</view>
             <view class="text-gray text-sm flex justify-between">
-              {{item.status}}
-              <view class="text-gray text-sm">
-                <text class="cuIcon-favorfill margin-lr-xs"></text>{{item.stars}}
-                <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.comment}}
-                <view class=""></view>
+              {{item.allinfo.status}}
+              <view class="text-gray text-sm" >
+                <text class="cuIcon-favorfill margin-lr-xs"></text>{{2}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text>{{2}}
               </view>
             </view>
           </view>

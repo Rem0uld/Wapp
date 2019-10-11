@@ -7,10 +7,10 @@ var place = '';
 var openid = '';
 Page({
   data: {
-    favorfill:'cuIcon-favorfill',
-    favor:'cuIcon-favor',
+    favorfill: 'cuIcon-favorfill',
+    favor: 'cuIcon-favor',
     modalName: null,
-    starArr:[1,2,3,4,5],
+    starArr: [1, 2, 3, 4, 5],
     place: [],
     status: true,
     comment: [],
@@ -72,7 +72,7 @@ Page({
         data: {
           openid: openid,
           formid: e.detail.formId,
-          name: this.data.teaInf.name,
+          name: this.data.teaInf._id,
           place: place,
           time: time,
         },
@@ -105,7 +105,7 @@ Page({
       db.collection('userInfo').doc(id).update({
         data: {
           order: {
-            tea: this.data.teaInf.name,
+            tea: this.data.teaInf._id,
             place: place,
             time: time,
           }
@@ -119,31 +119,32 @@ Page({
       success: e => {
         id = e.data[0]._id;
         openid = e.data[0]._openid;
-        if(e.data[0].order.tea == app.globalData.teacher){
+        console.log(e.data[0].order.tea)
+        if (e.data[0].order.tea == app.globalData.teacher) {
           this.setData({
-            status:false
+            status: false
           })
         }
       }
     })
-    db.collection('teacherInfo').get({
+    db.collection('teachers').get({
       success: res => {
-        teachers = res.data[0].teachers; //拿到关于教师数据
+        teachers = res.data; //拿到关于教师数据
         for (let i = 0; i <= teachers.length; i++) {
-          if (teachers[i].name == app.globalData.teacher) {
+          if (teachers[i]._id == app.globalData.teacher) {
             this.setData({
               teaInf: teachers[i], //筛选出选中的教师数据
             })
             this.setData({
               swiperList: [{
                 id: 0,
-                url: this.data.teaInf.pic
+                url: this.data.teaInf.allinfo.pic
               }, {
                 id: 1,
-                url: this.data.teaInf.pic2
+                url: this.data.teaInf.allinfo.pic2
               }, {
                 id: 2,
-                url: this.data.teaInf.pic3
+                url: this.data.teaInf.allinfo.pic3
               }],
             })
 

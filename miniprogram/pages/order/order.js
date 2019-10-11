@@ -14,21 +14,11 @@ Page({
   },
 
   onLoad: function(options) {
-
-    wx.cloud.callFunction({
-      name: 'count',
-      data: {},
-      success: e => {
-        console.log(e)
-      },fail:console.error
-    })
-
-
-
-    db.collection('teacherInfo').get({
+    db.collection('teachers').get({
       success: res => {
+        console.log(res.data)
         this.setData({
-          teacherInfo: res.data[0].teachers
+          teacherInfo: res.data
         })
       }
     })

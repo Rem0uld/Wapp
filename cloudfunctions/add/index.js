@@ -1,5 +1,5 @@
 // 云函数入口文件
-const cloud = require('wx-server-sdk')
+const cloud = require('wx-server-sdk') 
 
 cloud.init()
 const db = cloud.database()
@@ -17,12 +17,15 @@ exports.main = async(event, context) => {
           'score':event.score,
           '_openid':event.openid,
         })
+
       },
       success: e => {
         console.log(e)
       },
       fail: console.error
     })
+
+    
   } catch (e) {
     console.error(e)
   }
