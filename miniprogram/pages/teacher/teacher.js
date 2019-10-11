@@ -148,7 +148,7 @@ Page({
               }],
             })
 
-            db.collection('comment').doc(this.data.teaInf.name).get({
+            db.collection('comment').doc(this.data.teaInf._id).get({
               success: e => {
                 this.setData({ //获取相应评论
                   comment: e.data.comment,
