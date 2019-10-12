@@ -119,7 +119,6 @@ Page({
       success: e => {
         id = e.data[0]._id;
         openid = e.data[0]._openid;
-        console.log(e.data[0].order.tea)
         if (e.data[0].order.tea == app.globalData.teacher) {
           this.setData({
             status: false
@@ -148,11 +147,10 @@ Page({
               }],
             })
 
-            db.collection('comment').doc(this.data.teaInf._id).get({
+            db.collection('teachers').doc(this.data.teaInf._id).get({
               success: e => {
-                this.setData({ //获取相应评论
-                  comment: e.data.comment,
-                })
+                console.log(e.data.comment)
+                
               }
             })
           }

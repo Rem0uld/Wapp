@@ -43,7 +43,7 @@ Page({
 
   submit: function(e) { //提交数据到数据库
     wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
-      name: 'add',
+      name: 'test',
       data: {
         id: this.data.teaInf._id,
         name: this.data.userName,
@@ -58,7 +58,7 @@ Page({
           icon: 'success',
           duration: 3000,
         })
-        wx.reLaunch({
+        wx.navigateTo({
           url: '../teacher/teacher',
         })
       },
@@ -87,7 +87,7 @@ Page({
   },
 
   onLoad: function(e) {
-    
+
     wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -111,7 +111,6 @@ Page({
         }
       },
     })
-
     db.collection("userInfo").get({
       success: res => {
         userAvatar = res.data[0].avatarUrl;
