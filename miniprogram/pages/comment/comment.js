@@ -43,7 +43,7 @@ Page({
 
   submit: function(e) { //提交数据到数据库
     wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
-      name: 'test',
+      name: 'add',
       data: {
         id: this.data.teaInf._id,
         name: this.data.userName,
@@ -87,7 +87,6 @@ Page({
   },
 
   onLoad: function(e) {
-
     wx.cloud.callFunction({
       name: 'login',
       data: {},
@@ -95,7 +94,6 @@ Page({
         openid = e.result.openid;
       },
       fail: console.error
-
     })
 
     db.collection("teachers").get({
