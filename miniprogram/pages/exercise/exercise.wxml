@@ -2,3 +2,46 @@
   <view slot="content">练习</view>
 </cu-custom>
 
+
+<scroll-view scroll-y="true" style="height:960rpx">
+  <view style='padding-bottom:10rpx;'>
+    <view class="question-list">
+      <view class="question-list-title">
+        <text class='question-title'>{{tags+1}}/{{newArr.length}}.{{questions[newArr[tags]].title}}</text>
+      </view>
+    </view>
+  </view>
+  <image wx:if="{{questions[newArr[tags]].url}}" style="width: 100%; height:350rpx; background-color: #fff;" mode="scaleToFill" src="{{questions[newArr[tags]].url}}" data-src="{{questions[newArr[tags]].url}}" catchtap="showPic"></image>
+
+
+  <view class="my-bar bg-white solid-bottom" wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
+    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box" bindtap="chooseAnswer">
+      <text class="box text-l">
+        {{item.value}}、{{item.name}}
+      </text>
+    </view>
+  </view>
+
+</scroll-view>
+
+<view class="flex justify-center padding-bottom-xl padding-top-xl fixed-bottom bg-white">
+  <button class="cu-btn round bg-blue shadow margin-right-lg" bindtap='beforeQuestion'>上一题</button>
+
+  <button class="cu-btn bg-green round shadow margin-left-lg margin-right-lg" bindtap="showModal" data-target="bottomModal">
+    答题卡
+  </button>
+
+  <view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white">
+        <view class="action text-blue" bindtap="hideModal">收起</view>
+      </view>
+      <view>
+        <view wx:for='{{cardArr}}' wx:key class="margin " style='display:inline-block'>
+          <button class="cu-btn round bg-{{item?'green':'red'}}" data-index='{{index}}' bindtap="cardClick">{{index+1}}</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="cu-btn round bg-red shadow margin-left-lg" bindtap='next'>下一题</button>
+</view>

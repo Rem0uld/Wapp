@@ -1,1 +1,36 @@
-/* pages/home/home.wxss */
+
+.checked {
+  background-color: rgba(27, 180, 27, 0.774);
+}
+
+.fixed-bottom {
+  bottom: 0;
+
+  width: 100%;
+  position: fixed;
+}
+
+.my-bar {
+	display: flex;
+	position: relative;
+	align-items: center;
+	min-height: 150rpx;
+	justify-content: space-between;
+}
+.box{
+ 	min-height: 150rpx;
+  width: 100%;
+}
+
+.question-list {
+  padding: 15px;
+}
+
+.question-list-title {
+  font-size: 15px;
+}
+
+.question-title {
+  margin-left: 8px;
+  line-height: 25px;
+}

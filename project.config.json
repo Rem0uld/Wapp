@@ -118,6 +118,12 @@
 					"pathName": "pages/comment/comment",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "exercise",
+					"pathName": "pages/exercise/exercise",
+					"scene": null
 				}
 			]
 		}
