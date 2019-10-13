@@ -72,7 +72,7 @@ Page({
         data: {
           openid: openid,
           formid: e.detail.formId,
-          name: this.data.teaInf._id,
+          name: this.data.teaInf.name,
           place: place,
           time: time,
         },
@@ -101,11 +101,10 @@ Page({
         },
         fail: console.error
       })
-
       db.collection('userInfo').doc(id).update({
         data: {
           order: {
-            tea: this.data.teaInf._id,
+            tea: this.data.teaInf.name,
             place: place,
             time: time,
           }
@@ -132,31 +131,34 @@ Page({
         for (let i = 0; i <= teachers.length; i++) {
           if (teachers[i]._id == app.globalData.teacher) {
             this.setData({
-              teaInf: teachers[i], //筛选出选中的教师数据
+              teaInf: teachers[i].allinfo, //筛选出选中的教师数据
             })
             this.setData({
               swiperList: [{
                 id: 0,
-                url: this.data.teaInf.allinfo.pic
+                url: this.data.teaInf.pic
               }, {
                 id: 1,
-                url: this.data.teaInf.allinfo.pic2
+                url: this.data.teaInf.pic2
               }, {
                 id: 2,
-                url: this.data.teaInf.allinfo.pic3
+                url: this.data.teaInf.pic3
               }],
-            })
-
-            db.collection('teachers').doc(this.data.teaInf._id).get({
-              success: e => {
-                console.log(e.data.comment)
-                
-              }
             })
           }
         }
       }
     })
+
+    db.collection('teachers').doc(app.globalData.teacher).get({
+      success: e => {
+        console.log(e.data.comment)
+        this.setData({
+          comment: e.data.comment
+        })
+      }
+    })
+
     db.collection('place').get({
       success: e => {
         this.setData({

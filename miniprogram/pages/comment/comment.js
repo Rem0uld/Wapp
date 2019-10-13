@@ -1,6 +1,5 @@
 const app = getApp();
 const db = wx.cloud.database();
-const _ = db.command;
 var teachers = [];
 var userAvatar = '';
 var openid = '';
@@ -45,7 +44,7 @@ Page({
     wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
       name: 'add',
       data: {
-        id: this.data.teaInf._id,
+        id: this.data.teaInf.name,
         name: this.data.userName,
         avatar: userAvatar,
         comment: this.data.commentContent,
@@ -95,16 +94,15 @@ Page({
       },
       fail: console.error
     })
-
     db.collection("teachers").get({
       success: res => {
         teachers = res.data; //拿到关于教师数据
+        console.log(teachers)
         for (let i = 0; i <= teachers.length; i++) {
           if (teachers[i]._id == app.globalData.teacher) {
             this.setData({
-              teaInf: teachers[i], //筛选出选中的教师数据
+              teaInf: teachers[i].allinfo, //筛选出选中的教师数据
             })
-            console.log(this.data.teaInf)
           }
         }
       },
@@ -117,5 +115,6 @@ Page({
         })
       }
     })
+
   }
 })

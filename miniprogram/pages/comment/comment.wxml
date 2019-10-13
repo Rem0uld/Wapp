@@ -4,11 +4,11 @@
 
 <view class="cu-list menu-avatar solid-bottom">
   <view class="cu-item">
-    <view class="cu-avatar round l" style="background-image:url({{teaInf.allinfo.avatar}});"></view>
+    <view class="cu-avatar round l" style="background-image:url({{teaInf.avatar}});"></view>
     <view class="content flex-sub">
-      <view class="text-gray">{{teaInf._id}}</view>
+      <view class="text-gray">{{teaInf.name}}</view>
       <view class="text-cut text-gray" style="width:160px">
-        <text>{{teaInf.allinfo.info}}</text>
+        <text>{{teaInf.info}}</text>
       </view>
     </view>
   </view>
