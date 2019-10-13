@@ -1,3 +1,6 @@
+page{
+  background-color: white;
+}
 .fixed-bottom{
     bottom: 0;
     width: 100%;

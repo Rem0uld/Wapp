@@ -3,14 +3,14 @@
 </cu-custom>
 
 
-<scroll-view scroll-y="true" style="height:150vh;">
+<scroll-view scroll-y="true" style="height:82vh;" lower-threshold="20" bindscrolltolower="scolltolowe">
   <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
     <swiper-item wx:for="{{swiperList}}" wx:key>
       <image src="{{item.url}}" mode="aspectFill"></image>
     </swiper-item>
   </swiper>
 
-  <view class="bg-white cu-bar">
+  <view class="bg-white cu-bar solid-bottom">
     <view class="cu-avatar round xl margin" style="background-image:url({{teaInf.avatar}});"></view>
     <view class="text-lg box">{{teaInf.name}}</view>
   </view>
