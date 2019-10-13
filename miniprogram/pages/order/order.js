@@ -15,16 +15,24 @@ Page({
 
   onLoad: function(options) {
     db.collection('teachers').get({
+      success:e=>{
+        console.log(e.data)
+      }
+    })
+    
+
+
+
+    db.collection('teachers').get({
       success: res => {
         console.log(res.data)
         this.setData({
           teacherInfo: res.data
         })
-      }
+      } 
     })
     db.collection('userInfo').get({
       success: res => {
-        console.log(res.data[0].score)
         this.setData({
           score: res.data[0].score
         })

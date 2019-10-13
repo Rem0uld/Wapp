@@ -16,8 +16,9 @@ exports.main = async(event, context) => {
             'content': event.comment,
             'score': event.score,
             '_openid': event.openid,
-          }
-        )
+             'time' : Date.parse(new Date())
+          }),
+          stars:event.result
       },
       success: e => {
         console.log(e)

@@ -21,8 +21,8 @@
             <view class="text-gray text-sm flex justify-between">
               {{item.allinfo.status}}
               <view class="text-gray text-sm" >
-                <text class="cuIcon-favorfill margin-lr-xs"></text>{{2}}
-                <text class="cuIcon-messagefill margin-lr-xs"></text>{{2}}
+                <text class="cuIcon-favorfill margin-lr-xs"></text>{{item.stars}}
+                <text class="cuIcon-messagefill margin-lr-xs"></text>{{item.comment.length}}
               </view>
             </view>
           </view>

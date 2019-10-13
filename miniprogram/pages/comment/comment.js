@@ -41,28 +41,41 @@ Page({
   },
 
   submit: function(e) { //提交数据到数据库
-    wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
-      name: 'add',
-      data: {
-        id: this.data.teaInf.name,
-        name: this.data.userName,
-        avatar: userAvatar,
-        comment: this.data.commentContent,
-        score: this.data.score,
-        openid: openid,
-      },
+    var comments;
+    var count = 0;
+    var result;
+    wx.showLoading({
+      title: '提交中',
+    })
+    db.collection('teachers').doc(this.data.teaInf.name).get({
       success: e => {
-        wx.showToast({
-          title: '成功',
-          icon: 'success',
-          duration: 3000,
+        comments = e.data.comment;
+        for (let i = 0; i < comments.length; i++) {
+          count = comments[i].score + count
+        }
+        result = Math.round((count + this.data.score) / (comments.length + 1))
+
+        wx.cloud.callFunction({ //调用云函数添加数据，避免权限问题
+          name: 'add',
+          data: {
+            id: this.data.teaInf.name,
+            name: this.data.userName,
+            avatar: userAvatar,
+            comment: this.data.commentContent,
+            score: this.data.score,
+            openid: openid,
+            result:result,
+          },
+          success: e => {
+            wx.hideLoading();
+            wx.navigateTo({
+              url: '../teacher/teacher',
+            })
+          },
+          fail: e => {
+            console.log(e)
+          }
         })
-        wx.navigateTo({
-          url: '../teacher/teacher',
-        })
-      },
-      fail: e => {
-        console.log(e)
       }
     })
   },
