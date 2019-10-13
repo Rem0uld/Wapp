@@ -4,17 +4,13 @@ var tag = 0;
 var choosed = [];
 var answerArrs = []; //正确答案数组
 
-
 Page({
   data: {
-    textColor: 'blue',
     questions: [], //题库
     tags: 0, //题目标识
     newArr: [], //随机数数组
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
-
-    //设置提交状态，防止提交后继续倒计时
   },
 
   beforeQuestion: function() { //改变tags改变题目
@@ -34,8 +30,7 @@ Page({
   },
 
   next: function() {
-
-    if (tag >=this.data.questions.length-1) {
+    if (tag >= this.data.questions.length - 1) {
       wx.showToast({
         title: '已经是最后一题！',
         icon: 'none',
@@ -51,7 +46,6 @@ Page({
 
 
   chooseAnswer: function(res) {
-    console.log(tag);
     let mTag = this.data.newArr[this.data.tags];
     let index = res.currentTarget.dataset.index;
     let chooseArr = this.data.questions[mTag].options;
