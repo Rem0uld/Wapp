@@ -19,10 +19,10 @@
 
 
   <view class="my-bar bg-white solid-bottom" wx:for='{{questions[newArr[tags]].options}}' wx:key='{{item.name}}'>
-    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} box" bindtap="chooseAnswer">
-      <text class="box text-l">
-        {{item.value}}、{{item.name}}
-      </text>
+    <view data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" class="{{item.checked==true?'checked':'bg-white'}} my-bar" bindtap="chooseAnswer">
+      <view class="text-l margin">
+        {{item.value}}:{{item.name}}
+      </view>
     </view>
   </view>
 

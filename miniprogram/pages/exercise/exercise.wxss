@@ -5,7 +5,6 @@
 
 .fixed-bottom {
   bottom: 0;
-
   width: 100%;
   position: fixed;
 }
@@ -16,9 +15,6 @@
 	align-items: center;
 	min-height: 150rpx;
 	justify-content: space-between;
-}
-.box{
- 	min-height: 150rpx;
   width: 100%;
 }
 

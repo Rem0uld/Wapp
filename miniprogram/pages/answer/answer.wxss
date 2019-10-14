@@ -10,18 +10,6 @@
   position: fixed;
 }
 
-.my-bar {
-	display: flex;
-	position: relative;
-	align-items: center;
-	min-height: 150rpx;
-	justify-content: space-between;
-}
-.box{
- 	min-height: 150rpx;
-  width: 100%;
-}
-
 .question-list {
   padding: 15px;
 }
@@ -33,4 +21,12 @@
 .question-title {
   margin-left: 8px;
   line-height: 25px;
+}
+.my-bar {
+	display: flex;
+	position: relative;
+	align-items: center;
+	min-height: 150rpx;
+	justify-content: space-between;
+  width: 100%;
 }

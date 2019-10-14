@@ -52,14 +52,11 @@ Page({
     textColor: 'blue',
     countDownSec: 60,
     countDownMin: 200,
-    //选择好的数组
     questions: [], //题库
     tags: 0, //题目标识
     newArr: [], //随机数数组
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
-
-    //设置提交状态，防止提交后继续倒计时
   },
 
   beforeQuestion: function() { //改变tags改变题目
