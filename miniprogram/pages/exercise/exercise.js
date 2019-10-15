@@ -56,6 +56,21 @@ Page({
     })
 
 
+    let mTag = this.data.tags;
+    let chooseArr = this.data.question[mTag].options;
+    let nowChecked = 'question[' + mTag + '].options'; //setData改变部分数据
+    if (chooseArr[index].checked) return; //选择当前已经选择的返回
+    chooseArr.forEach(item => { //遍历选项，将其他选项设置为false（单选）
+      item.checked = false
+    })
+    chooseArr[index].checked = true;
+    this.setData({
+      [nowChecked]: chooseArr,
+    })
+    console.log(this.data.question[mTag])
+
+
+
   },
 
   //放大图片
