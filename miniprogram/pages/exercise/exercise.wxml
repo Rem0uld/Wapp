@@ -7,11 +7,20 @@
 
   <image wx:if="{{question[tags].url}}" style="width: 100%; height:350rpx; background-color: #fff;" mode="scaleToFill" src="{{question[tags].url}}" data-src="{{question[tags].url}}" catchtap="showPic"></image>
 
-  <view class="my-bar bg-white solid-bottom" wx:for="{{question[tags].options}}" wx:key data-index="{{index}}" data-value="{{item.value}}" data-checked="{{item.checked}}" bindtap="choose">
-    <view class="text-l my-bar margin {{item.checked?'bg-green':'bg-white'}}"> 
-          {{item.value}}:{{item.name}}    
+  <view  class="my-bar bg-white solid-bottom " wx:for="{{question[tags].options}}" wx:key="{{index}}" data-value="{{item.value}}" data-index="{{index}}" bindtap="choose">
+    <view class="text-l my-bar margin {{item.value==answer&&id!=-1?'bg-green':''}} {{item.value!=answer&&index==id?'bg-red':''}}" >
+      {{item.value}}:{{item.name}}
     </view>
   </view>
+
+
+<view >
+
+<block>
+</block>
+</view>
+
+
 </scroll-view>
 
 

@@ -5,7 +5,9 @@ Page({
   data: {
     question: [],
     tags: 0,
-    right:'',
+    answer: '',
+    id: -1,
+
 
   },
 
@@ -26,6 +28,7 @@ Page({
   },
 
   next: function(e) {
+
     tag = tag + 1;
     if (tag > this.data.question.length - 1) {
       wx.showToast({
@@ -42,20 +45,17 @@ Page({
   },
 
   choose: function(res) {
-    console.log(res)
-    let mTag = this.data.tags;
-    let index = res.currentTarget.dataset.index;
-    let chooseArr = this.data.question[mTag].options;
-    let nowChecked = 'question[' + mTag + '].options'; //setData改变部分数据
-    if (chooseArr[index].checked) return; //选择当前已经选择的返回
-    chooseArr.forEach(item => { //遍历选项，将其他选项设置为false（单选）
-      item.checked = false
-    })
-    chooseArr[index].checked = true;
+    var that = this;
+    var touch = res.currentTarget.dataset.value
     this.setData({
-      [nowChecked]: chooseArr,
+      answer: this.data.question[tag].answer
     })
-    console.log(this.data.question)
+    var index = res.currentTarget.dataset.index; //本次点击的下标
+    that.setData({
+      id: index
+    })
+
+
   },
 
   //放大图片
