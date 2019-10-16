@@ -2,13 +2,14 @@ const db = wx.cloud.database();
 const app = getApp();
 var tag = 0;
 var arr = [];
+var ansArr=[];
 Page({
   data: {
     question: [],
     tags: 0,
     answer: '',
     choose:[],
-
+    ansArr:[],
 
   },
 
@@ -46,6 +47,7 @@ Page({
   },
 
   choose: function(res) {
+    console.log(ansArr)
     arr.splice(this.data.tags,1,true)
     this.setData({
       choose:arr
@@ -91,8 +93,12 @@ Page({
           question: e.data[0].question
         })
         for (let i = 0; i < this.data.question.length;i++){
-            arr.push(false)
+            arr.push(false);
+            ansArr.push(e.data[0].question[i].answer)
         }
+        this.setData({
+          ansArr:ansArr,
+        })
       },
       fail: console.error
     })

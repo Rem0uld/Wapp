@@ -2,20 +2,29 @@
   <view slot="content">练习</view>
 </cu-custom>
 
-<scroll-view scroll-y="true" style="height:82vh;">
+<scroll-view scroll-y="true" style="height:80vh;">
   <view class="my-bar margin text-xl">{{tags+1}}、{{question[tags].title}}</view>
 
   <image wx:if="{{question[tags].url}}" style="width: 100%; height:350rpx; background-color: #fff;" mode="scaleToFill" src="{{question[tags].url}}" data-src="{{question[tags].url}}" catchtap="showPic"></image>
 
   <view class="my-bar bg-white solid-bottom" wx:for="{{question[tags].options}}" wx:key="{{index}}" data-value="{{item.value}}" data-index="{{index}}" bindtap="choose" data-checked="{{item.checked}}">
-    <view class="text-l my-bar {{item.value!= answer && item.checked == true ?'bg-red':''}} {{item.value==answer&&choose[tags]==true?'bg-green':''}}  ">
+    <view class="text-l my-bar {{item.value!=ansArr[tags]&& item.checked == true ?'bg-red':''}} {{(item.value==ansArr[tags]&&choose[tags]==true)?'bg-green':''}}  ">
       <text class="margin">
         {{item.value}}:{{item.name}}
       </text>
     </view>
   </view>
-<view></view>
 
+  <view wx:if="{{choose[tags]}}">
+    <view class="cu-bar bg-white margin-top-l solid-bottom">
+      <view class='action'>
+        <text class="cuIcon-title text-blue"></text>解析
+      </view>
+    </view>
+    <view class="margin-xl">
+      <text class="text-l text-red">{{question[tags].help}}</text>
+    </view>
+  </view>
 </scroll-view>
 
 
