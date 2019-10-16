@@ -135,8 +135,10 @@ Page({
       }
       choosed = userArr;
       answerArrs = answerArr,
-        console.log(choosed);
+      console.log(choosed);
+      app.globalData.choose = choosed;//将选中的数组传递出
       console.log(answerArrs);
+      app.globalData.answer = answerArrs;//将正确答案的数组传递出
       wx.cloud.callFunction({
         name: 'score',
         data: {

@@ -19,5 +19,7 @@ App({
     openid:'',
     score:'',
     teacher:'',
+    choose:[],
+    answer:[],
   }
 })

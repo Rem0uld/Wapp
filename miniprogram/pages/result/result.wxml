@@ -1,29 +1,56 @@
 <cu-custom bgColor="bg-gradual-pink" isBack='{{false}}'>
-    <view slot="content">结果</view>
+  <view slot="content">结果</view>
 </cu-custom>
 
-
-<view wx:if='{{score >= 60}}' class='box-text'>
-    <image src='../../images/success.gif' mode='center'></image>
-    <view class="padding bg-green radius animation-slide-top" style='width:550rpx;margin:0 auto;animation-delay: 0.5s;'>您的分数为：{{score}}分，恭喜通过考试！</view>
-    <view class='margin'></view>
-    <view class="flex" style='width:600rpx;margin:0 auto;'>
-        <button class='bg-gradual-blue radius margin' style='width:50%' bindtap='goOrder'>前往预约
-        </button>
-        <button class='bg-gradual-red radius margin' style='width:50%' bindtap='goIndex'>
-            返回首页
-        </button>
-    </view>
+<view class="cu-bar bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>考试结果</view>
 </view>
-<view wx:else class='box-text'>
-    <image src='../../images/fail.gif' mode='center'></image>
-    <view class="padding bg-red radius animation-slide-bottom" style='width:600rpx;margin:0 auto;animation-delay: 0.5s;'>您的分数为：{{score}}分，很遗憾未能通过考试！</view>
-    <view class='margin'></view>
-    <view class="flex" style='width:650rpx;margin:0 auto;'>
-        <button class='bg-gradual-blue radius margin' style='width:50%;' disabled='true'>前往预约
-        </button>
-        <button class='bg-gradual-red radius margin' style='width:50%' bindtap='goIndex'>
-            返回首页
-        </button>
+
+<view wx:if="{{score>=60}}">
+  <scroll-view scroll-y="true" style="height:50vh;">
+    <view style="text-align:center;" class="margin-top-xl padding-top-xl">
+      <view wx:for='{{chooseArr}}' wx:key class="center margin" style="display:inline-block;">
+        <view class="text-gray">{{index+1}}</view>
+        <view class="{{item==answerArr[index]?'bg-green':'bg-red'}} round box solids">
+          {{item}}
+        </view>
+      </view>
     </view>
+  </scroll-view>
+
+
+  <view class="padding bg-green radius animation-slide-bottom" style='width:600rpx;margin:0 auto;animation-delay: 0.5s;text-align:center;'>
+    您的分数为{{score}}分
+  </view>
+  <view class="fixed-bottom">
+    <view class="margin-xl padding-bottom-xl">
+      <button class="fl cu-btn round bg-blue shadow" bindtap="goOrder">前往预约</button>
+      <button class="fr cu-btn round bg-gradual-pink shadow" bindtap="goIndex">返回首页</button>
+    </view>
+  </view>
+</view>
+
+
+<view wx:else>
+  <scroll-view scroll-y="true" style="height:50vh;">
+    <view style="text-align:center;" class="margin-top-xl padding-top-xl">
+      <view wx:for='{{chooseArr}}' wx:key class="center margin" style="display:inline-block;">
+        <view class="text-gray">{{index+1}}</view>
+        <view class="{{item==answerArr[index]?'bg-green':'bg-red'}} round box solids">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <view class="padding bg-red radius animation-slide-bottom" style='width:600rpx;margin:0 auto;animation-delay: 0.5s;text-align:center;'>
+    您的分数为{{score}}分
+  </view>
+  <view class="fixed-bottom">
+    <view class="margin-xl padding-bottom-xl">
+      <button class="fl cu-btn round bg-blue shadow" bindtap="goOrder" disabled="true">前往预约</button>
+      <button class="fr cu-btn round bg-gradual-pink shadow" bindtap="goIndex">返回首页</button>
+    </view>
+  </view>
 </view>
