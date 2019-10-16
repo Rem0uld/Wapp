@@ -6,7 +6,7 @@ Page({
     question: [],
     tags: 0,
     answer: '',
-    id: -1,
+    touch: '',
 
 
   },
@@ -45,16 +45,14 @@ Page({
   },
 
   choose: function(res) {
-    var that = this;
-    var touch = res.currentTarget.dataset.value
     this.setData({
-      answer: this.data.question[tag].answer
+      touch:res.currentTarget.dataset.tag
     })
     var index = res.currentTarget.dataset.index; //本次点击的下标
-    that.setData({
-      id: index
+    var touch = res.currentTarget.dataset.value
+    this.setData({
+      answer: this.data.question[tag].answer,
     })
-
 
     let mTag = this.data.tags;
     let chooseArr = this.data.question[mTag].options;
@@ -67,9 +65,8 @@ Page({
     this.setData({
       [nowChecked]: chooseArr,
     })
-    console.log(this.data.question[mTag])
-
-
+    console.log(res)
+    console.log(this.data.question[mTag].options)
 
   },
 
@@ -88,7 +85,6 @@ Page({
         this.setData({
           question: e.data[0].question
         })
-        console.log(e.data[0].question)
       },
       fail: console.error
     })

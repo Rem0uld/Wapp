@@ -7,7 +7,7 @@
 	display: flex;
 	position: relative;
 	align-items: center;
-	min-height: 150rpx;
+	min-height: 120rpx;
 	justify-content: space-between;
   width: 100%;
 }
