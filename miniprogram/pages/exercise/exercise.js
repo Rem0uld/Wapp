@@ -6,7 +6,7 @@ Page({
     question: [],
     tags: 0,
     answer: '',
-    touch: '',
+
 
 
   },
@@ -45,9 +45,6 @@ Page({
   },
 
   choose: function(res) {
-    this.setData({
-      touch:res.currentTarget.dataset.tag
-    })
     var index = res.currentTarget.dataset.index; //本次点击的下标
     var touch = res.currentTarget.dataset.value
     this.setData({
