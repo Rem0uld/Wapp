@@ -1,12 +1,13 @@
 const db = wx.cloud.database();
 const app = getApp();
 var tag = 0;
+var arr = [];
 Page({
   data: {
     question: [],
     tags: 0,
     answer: '',
-
+    choose:[],
 
 
   },
@@ -45,6 +46,12 @@ Page({
   },
 
   choose: function(res) {
+    arr.splice(this.data.tags,1,true)
+    this.setData({
+      choose:arr
+    })
+    console.log(this.data.choose)
+    
     var index = res.currentTarget.dataset.index; //本次点击的下标
     var touch = res.currentTarget.dataset.value
     this.setData({
@@ -77,14 +84,20 @@ Page({
   },
 
   onLoad: function(options) {
+    
     db.collection('questionBank').get({
       success: e => {
         this.setData({
           question: e.data[0].question
         })
+        for (let i = 0; i < this.data.question.length;i++){
+            arr.push(false)
+        }
       },
       fail: console.error
     })
+
+    
   },
 
 })
