@@ -3,7 +3,7 @@
 </cu-custom>
 
 <view class="cu-bar bg-white solid-bottom justify-center">
-  <text class="cuIcon-time text-{{textColor}}">{{countDownMin}}分{{countDownSec}}秒</text>
+  <text class="cuIcon-time {{wxTimer<'00:01:00'?'text-red':'text-blue'}}">{{wxTimer}}</text>
 </view>
 
 

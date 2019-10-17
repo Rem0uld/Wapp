@@ -1,62 +1,42 @@
+var timer = require('../../colorui/wxTimer.js')
 const db = wx.cloud.database();
 const app = getApp();
-var tag = 0;
+var tag = 0; 
 var choosed = [];
-var subTag = false;
 var answerArrs = []; //正确答案数组
-function countDown(that) {
-  let sec = that.data.countDownSec;
-  let min = that.data.countDownMin;
-  if (sec == 0 && min == 0) {
-    console.log('time out')
+
+var wxTimer = new timer({//倒计时
+  beginTime: "00:30",
+  complete: function () {
     wx.showModal({
-      title: '失败',
-      content: '未在指定时间内交卷，考试失败！',
-      showCancel: false,
-      success: res => {
-        wx.switchTab({
-          url: '../index/index',
-        })
+      title: '时间到',
+      content: '未在指定时间内完成考试！',
+      success(res) {
+        if (res.confirm) {
+          wx.reLaunch({
+            url: '../index/index',
+          })
+        } else if (res.cancel) {
+          wx.reLaunch({
+            url: '../index/index',
+          })
+        }
       }
     })
-    return;
   }
-  if (min <= 1) {
-    that.setData({
-      textColor: 'red',
-    })
-  }
-  if (sec == 0) {
-    var delay = setTimeout(function() { //补秒
-      that.setData({
-        countDownMin: min - 1,
-      })
-    }, 1000)
-    sec = 10;
-  }
-  const time = setTimeout(function() {
-    if (subTag) {
-      console.log('stop')
-      return
-    }
-    that.setData({
-      countDownSec: sec - 1,
-    })
-    countDown(that);
-  }, 1000)
-}
+})
+
+
 
 
 Page({
   data: {
-    textColor: 'blue',
-    countDownSec: 60,
-    countDownMin: '',
     questions: [], //题库
     tags: 0, //题目标识
     newArr: [], //随机数数组
     cardArr: [], //答题卡数组
     cardIndex: 0, //答题卡序号
+    wxTimerList: {},
   },
 
   beforeQuestion: function() { //改变tags改变题目
@@ -209,18 +189,17 @@ Page({
   },
 
   onLoad: function(options) {
-    console.log(this.data.tags)
+    wxTimer.start(this);
     db.collection('time').doc('time').get({
       success: e => {
         this.setData({
           countDownMin: e.data.min
         })
-        countDown(this); //初始化倒计时
+        
       }
     })
     db.collection('questionBank').get({ //获取数据库中的题库，保存到本地
       success: res => {
-        // const answerBank = res.data[0].question[0];
         this.setData({
           questions: res.data[0].question,
         })
@@ -247,7 +226,12 @@ Page({
       }
     })
   },
+
+  onShow:function(){
+    wxTimer.calibration();
+  },
+
   onUnload: function() {
-    subTag = true;
+    wxTimer.stop();
   }
 })
