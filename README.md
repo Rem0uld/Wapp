@@ -21,12 +21,12 @@
 
 ****
 欢迎体验
-![imag](https://github.com/gritJack/Wapp/blob/master/images/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A0%81.jpg）
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A0%81.jpg）
 ****
 
 ## 界面展示
 欢迎界面：
-![imag](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
+![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%AC%A2%E8%BF%8E.png)
 ****
 注册界面：
 ![image](https://github.com/gritJack/Wapp/blob/master/images/%E6%B3%A8%E5%86%8C.png)
