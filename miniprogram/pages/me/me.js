@@ -7,8 +7,8 @@ Page({
   data: {
     avatarUrl: '',
     nickName: '',
-    score:'',
-    order:'',
+    score: '',
+    order: '',
     github: 'https://github.com/gritJack/Wapp'
   },
 
@@ -20,8 +20,8 @@ Page({
         this.setData({
           avatarUrl: res.data[0].avatarUrl,
           nickName: res.data[0].userInfo.nickName,
-          score:res.data[0].score,
-          order:res.data[0].order.tea
+          score: Math.round(res.data[0].score),
+          order: res.data[0].order.tea
         })
 
       }
@@ -30,19 +30,19 @@ Page({
 
   },
   goAbout: function() {
-      wx.navigateTo({
-        url: '../about/about',
-      })
+    wx.navigateTo({
+      url: '../about/about',
+    })
 
   },
 
-  feedback:function(){
-   wx.navigateTo({
-     url: '../feedback/feedback',
-   })
+  feedback: function() {
+    wx.navigateTo({
+      url: '../feedback/feedback',
+    })
   },
 
-  clickGit: function () {
+  clickGit: function() {
     wx.setClipboardData({
       data: this.data.github,
       success: res => {

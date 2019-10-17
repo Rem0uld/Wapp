@@ -1,7 +1,7 @@
 const app = getApp();
 Page({
     data: {
-        score: '',
+      score: '',
       chooseArr: [],
       answerArr: [],
     },
@@ -23,7 +23,7 @@ Page({
         console.log("选择的数组"+app.globalData.choose);
         console.log("答案数组"+app.globalData.answer)
         this.setData({
-          score: app.globalData.score,
+          score: Math.round (app.globalData.score),
           chooseArr:app.globalData.choose,
           answerArr: app.globalData.answer,
         })
