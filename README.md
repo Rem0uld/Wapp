@@ -19,6 +19,10 @@
     5.教师预约，评分，留言功能
     基本完成全部功能，除了欢迎界面太丑暂时不想更改！
 
+****
+欢迎体验
+![imag](https://github.com/gritJack/Wapp/blob/master/images/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%A0%81.jpg）
+****
 
 ## 界面展示
 欢迎界面：
