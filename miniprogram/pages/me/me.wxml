@@ -41,21 +41,21 @@
   </view>
 
   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
-    <view class='content margin-left-xl'>
+    <view class='content margin-left-xl' bindtap="feedback">
       <text class="cuIcon-writefill text-cyan"></text>
       <text class='text-gray text-xl'>意见反馈</text>
     </view>
   </view>
 
   <view class='cu-item animation-slide-right' style="animation-delay: 0.5s;">
-    <view class='content margin-left-xl'>
+    <view class='content margin-left-xl' bindtap="clickGit">
       <text class="cuIcon-appreciatefill text-red"></text>
       <text class='text-gray text-xl'>赞赏支持</text>
     </view>
   </view>
 
   <view class='cu-item animation-slide-left' style="animation-delay: 0.5s;">
-    <view class='content margin-left-xl'>
+    <view class='content margin-left-xl' bindtap="feedback">
       <text class="cuIcon-creativefill text-red"></text>
       <text class='text-gray text-xl'>Bug提交</text>
     </view>

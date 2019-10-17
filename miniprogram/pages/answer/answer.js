@@ -51,7 +51,7 @@ Page({
   data: {
     textColor: 'blue',
     countDownSec: 60,
-    countDownMin: 200,
+    countDownMin: '',
     questions: [], //题库
     tags: 0, //题目标识
     newArr: [], //随机数数组
@@ -135,10 +135,10 @@ Page({
       }
       choosed = userArr;
       answerArrs = answerArr,
-      console.log(choosed);
-      app.globalData.choose = choosed;//将选中的数组传递出
+        console.log(choosed);
+      app.globalData.choose = choosed; //将选中的数组传递出
       console.log(answerArrs);
-      app.globalData.answer = answerArrs;//将正确答案的数组传递出
+      app.globalData.answer = answerArrs; //将正确答案的数组传递出
       wx.cloud.callFunction({
         name: 'score',
         data: {
@@ -207,10 +207,17 @@ Page({
       urls: [src]
     })
   },
-  
+
   onLoad: function(options) {
     console.log(this.data.tags)
-    countDown(this); //初始化倒计时
+    db.collection('time').doc('time').get({
+      success: e => {
+        this.setData({
+          countDownMin: e.data.min
+        })
+        countDown(this); //初始化倒计时
+      }
+    })
     db.collection('questionBank').get({ //获取数据库中的题库，保存到本地
       success: res => {
         // const answerBank = res.data[0].question[0];

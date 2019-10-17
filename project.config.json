@@ -123,6 +123,13 @@
 					"id": -1,
 					"name": "exercise",
 					"pathName": "pages/exercise/exercise",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "feedback",
+					"pathName": "pages/feedback/feedback",
 					"scene": null
 				}
 			]

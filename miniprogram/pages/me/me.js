@@ -8,7 +8,8 @@ Page({
     avatarUrl: '',
     nickName: '',
     score:'',
-    order:''
+    order:'',
+    github: 'https://github.com/gritJack/Wapp'
   },
 
 
@@ -33,6 +34,24 @@ Page({
         url: '../about/about',
       })
 
+  },
+
+  feedback:function(){
+   wx.navigateTo({
+     url: '../feedback/feedback',
+   })
+  },
+
+  clickGit: function () {
+    wx.setClipboardData({
+      data: this.data.github,
+      success: res => {
+        wx.showModal({
+          title: '已复制github地址',
+          content: '如有需要欢迎访问本程序Github项目！',
+        })
+      },
+    })
   },
 
   /**
