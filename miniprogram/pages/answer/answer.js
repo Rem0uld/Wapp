@@ -190,14 +190,7 @@ Page({
 
   onLoad: function(options) {
     wxTimer.start(this);
-    db.collection('time').doc('time').get({
-      success: e => {
-        this.setData({
-          countDownMin: e.data.min
-        })
-        
-      }
-    })
+    
     db.collection('questionBank').get({ //获取数据库中的题库，保存到本地
       success: res => {
         this.setData({
