@@ -61,6 +61,9 @@
 题库数据已经给出
 业余作品，暂时停止更新，只能提供简单的支持。
 
+## 数据库相关
+数据表相关设置请看images文件夹内截图。
+
 ## 参考文档
 - [ColorUI](https://github.com/weilanwl/ColorUI)
 
